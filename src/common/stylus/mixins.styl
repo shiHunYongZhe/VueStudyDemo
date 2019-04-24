@@ -1,0 +1,97 @@
+$green = #02a774
+$blue= #3190e8
+//$yellow = #F5A100
+$bc = #e4e4e4
+
+//字体大小，颜色
+sc($font-size, $color)
+  font-size $font-size
+  color $color
+
+//字体大小、行高、字体
+font($size, $line-height, $family = 'Microsoft YaHei')
+	font $size/$line-height $family
+
+//宽高
+wh($width, $height)
+  width $width
+  height $height
+
+//定位全屏
+allcover()
+	position absolute
+	top 0
+  bottom 0
+  left 0
+	right 0
+  margin auto
+
+//定位上下左右居中
+ab-center()
+  position absolute
+  top 50%
+  left 50%
+  transform translate(-50%, -50%)
+
+//flex 布局和 子元素 对其方式
+flex-j($type = space-between)
+	display flex
+	justify-content $type
+
+// 背景图片地址和大小
+bg($url)
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+// 一像素下边框
+bottom-border-1px($color)
+  position relative
+  border none
+  &:after
+    content ''
+    position absolute
+    left 0
+    bottom 0
+    width 100%
+    height 1px
+    background-color $color
+    transform scaleY(0.5)
+
+// 一像素上边框
+top-border-1px($color)
+  position relative
+  &::before
+    content ''
+    position absolute
+    z-index 200
+    left 0
+    top 0
+    width 100%
+    height 1px
+    background-color $color
+
+//根据像素比缩放1px像素边框
+@media only screen and (-webkit-device-pixel-ratio: 2 )
+  .border-1px
+    &::before
+      transform scaleY(.5)
+
+@media only screen and (-webkit-device-pixel-ratio: 3 )
+  .border-1px
+    &::before
+      transform scaleY(.333333)
+
+//根据像素比来使用 2x图 3x图
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+//清除浮动
+clearFix()
+  *zoom 1
+  &::after
+    content ''
+    display block
+    clear both
