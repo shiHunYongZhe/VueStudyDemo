@@ -11,9 +11,11 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
+// 日志输出
 const spinner = ora('building for production...')
 spinner.start()
 
+// 打包之前删除上次打包的文件
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {

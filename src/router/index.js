@@ -32,6 +32,46 @@ const shopInfo = () => import('../page/Shop/ShopInfo/ShopInfo.vue')
 const shopRatings = () => import('../page/Shop/ShopRatings/ShopRatings.vue')
 Vue.use(Router)
 
+// 当一个页面路由太多时，可改用以下写法
+// import home from './home';
+// home.js的内容
+// export default [
+//     {
+//         path: '/',
+//         redirect: '/home'
+//     },
+//     {
+//         path: '/home',
+//         name: 'home',
+//         meta: { showFooter: true }
+//     },
+//     {
+//         name: '/forget',
+//         path: '/forget'
+//     },
+// ];
+
+// const router = new Router({
+//   routes: [].concat(
+//       home,
+//       profile,
+//       search,
+//       order
+//   )
+// });
+
+// 监听路由进入和离开
+// router.beforeEach((to, from, next) => {
+//   next();
+// });
+// router.afterEach(route => {
+//   if (route.name !== 'login') {
+
+//   }
+// });
+
+// export default router
+
 export default new Router({
   //  去掉地址中的哈希#，改成历史模式
   mode: 'history',

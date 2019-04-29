@@ -58,6 +58,7 @@
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import AlertTip from '../../components/AlertTip/AlertTip.vue'
 import {reqSendCode, reqSmsLogin, reqPwdLogin} from '../../api'
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -171,7 +172,9 @@ export default {
     // 获取一个新的图片验证码
     getCaptcha () {
       // 每次指定的src要不一样
-      this.$refs.captcha.src = ''
+      axios.jsonp('http://cangdu.org:8001/v1/captchas', {}).then(res => {
+        this.$refs.captcha = res.code
+      })
       // 'http://localhost:4000/captcha?time=' + Date.now()
     }
   },

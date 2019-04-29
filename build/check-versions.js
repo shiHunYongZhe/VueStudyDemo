@@ -1,6 +1,7 @@
 'use strict'
 // 定义终端命令行的样式（比如哪些用黑色，哪些用绿色)
 const chalk = require('chalk')
+// 校验版本依赖，比如要大于1.4.3
 const semver = require('semver')
 const packageConfig = require('../package.json')
 const shell = require('shelljs')

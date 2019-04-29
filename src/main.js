@@ -7,10 +7,13 @@ import store from './store'
 
 import fastclick from 'fastclick'
 import vueLazyload from 'vue-lazyload'
-import loading from './common/imgs/loading.gif'
 import {Button} from 'mint-ui'
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer'
+// import loading from './common/imgs/loading.gif'
+// Vue.use(vueLazyload, {
+//   loading
+// })
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoader', function () {
     fastclick.attach(document.body)
@@ -18,7 +21,7 @@ if ('addEventListener' in document) {
 }
 Vue.component(Button.name, Button)
 Vue.use(vueLazyload, {
-  loading
+  loading: require('./common/imgs/loading.gif')
 })
 // 关闭vue功能的线上实例提示
 Vue.config.productionTip = false
