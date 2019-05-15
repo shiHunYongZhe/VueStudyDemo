@@ -1,7 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import home from '../page/Home/Home'
-// 路由组件懒加载,减少首次加载下载包
+// 路由组件懒加载,减少首次加载下载包，
+
+// vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载
+// 这种方式每个组件会生成一个js文件
+// const home = () => import('../page/Home/Home.vue')
+// 下面2行代码，指定了相同的webpackChunkName，会合并打包成一个js文件。 把组件按组分块
+// const Home =  () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Home/Home.vue')
+// const Index = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Search/Search.vue')
+
+// webpack提供的require.ensure()
+// vue-router配置路由，使用webpack的require.ensure技术，也可以实现按需加载。
+// 这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。以下示例就生成两个js文件，分别是demo.js和demo-01.js
+// {
+//   path: '/home',
+//   name: 'home',
+//   component: r => require.ensure([], () => r(require('../page/Home/Home.vue')), 'demo')
+// }, {
+//   path: '/search',
+//   name: 'Search',
+//   component: r => require.ensure([], () => r(require('../page/Search/Search.vue')), 'demo')
+// }, {
+//   path: '/order',
+//   name: 'Order',
+//   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
+// }
+
 const home = () => import('../page/Home/Home.vue')
 const search = () => import('../page/Search/Search.vue')
 const order = () => import('../page/Order/Order.vue')
