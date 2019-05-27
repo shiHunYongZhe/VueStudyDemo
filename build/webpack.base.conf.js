@@ -35,10 +35,11 @@ module.exports = {
   },
   // watch: true 文件改变自动产出build.js，默认不设置
   resolve: {
-  // 设置扩展名，如果配置了这个，name在import导入的时候，就不用再写后缀名了
+  // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
   // 使用scss的时候，还可以加上 .css 和 .scss
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      // 引入路径别名
       'vue$': 'vue/dist/vue.esm.js',
       'src': path.resolve(__dirname, '../src'),
       'common': path.resolve(__dirname, '../src/common'),

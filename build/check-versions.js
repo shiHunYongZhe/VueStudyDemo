@@ -4,6 +4,7 @@ const chalk = require('chalk')
 // 校验版本依赖，比如要大于1.4.3
 const semver = require('semver')
 const packageConfig = require('../package.json')
+// 执行终端的命令
 const shell = require('shelljs')
 
 function exec (cmd) {
@@ -17,7 +18,7 @@ const versionRequirements = [
     versionRequirement: packageConfig.engines.node
   }
 ]
-
+// 以下这段代码注释后，由于不检查版本升级，npm run dev会显著提升效率
 if (shell.which('npm')) {
   versionRequirements.push({
     name: 'npm',
@@ -31,7 +32,7 @@ module.exports = function () {
 
   for (let i = 0; i < versionRequirements.length; i++) {
     const mod = versionRequirements[i]
-
+    // 如果版本不符合，则输出以下信息
     if (!semver.satisfies(mod.currentVersion, mod.versionRequirement)) {
       warnings.push(mod.name + ': ' +
         chalk.red(mod.currentVersion) + ' should be ' +

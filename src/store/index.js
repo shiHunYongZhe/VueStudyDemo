@@ -10,6 +10,10 @@ import state from './state'
 import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
+// 在使用vuex的功能时打印数据
+import createLogger from 'vuex/dist/logger'
+// 根据当前环境判断是否使用debug
+const debug = process.env.NODE_ENV !== 'production'
 // 一定要声明使用插件
 Vue.use(Vuex)
 // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
@@ -17,5 +21,7 @@ export default new Vuex.Store({
   state,
   mutations,
   actions,
-  getters
+  getters,
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
 })
