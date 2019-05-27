@@ -11,9 +11,9 @@
 ├── config                                      // 项目打包路径配置
 ├── dist                                        // 上线项目文件，放在服务器即可正常访问
 ├── src                                         // 源码目录
-│   ├── api                                     // api组件
+│   ├── api                                     // 数据交互统一调配
 │   │   ├── ajax                                // ajax封装
-│   │   ├── index                               // 与后端交互的api
+│   │   ├── index                               // 获取数据的统一调配文件，对接口进行统一管理
 │   ├── common                                  // 公共文件
 │   │   ├── imgs                                // 图片文件夹 
 │   │   └── stylus                              // 公共stylus组件
@@ -28,7 +28,7 @@
 │   │   ├── ShopHeader                          // 店铺头部组件
 │   │   ├── ShopList                            // 店铺出售商品组件
 │   │   ├── Star                                // 星级评价组件
-│   ├── mock                                    // 模拟数据
+│   ├── mock                                    // 开发阶段的临时模拟数据
 │   ├── page                                    // 具体路由页面
 │   │   ├── Balance
 │   │   │   ├── Balance.vue                     // 余额页
@@ -65,22 +65,25 @@
 │   │   │   └── find.vue                        // 发现页
 │   │   ├── food
 │   │   │   └── food.vue                        // 食品筛选排序页
-│   │   ├── forget
-│   │   │   └── forget.vue                      // 忘记密码，修改密码页
-│   │   ├── home
-│   │   │   └── home.vue                        // 首页
-│   │   ├── login
-│   │   │   └── login.vue                       // 登录注册页
+│   │   ├── Forget
+│   │   │   └── Forget.vue                      // 忘记密码，修改密码页
+│   │   ├── Home
+│   │   │   └── Home.vue                        // 首页
+│   │   ├── Login
+│   │   │   └── Login.vue                       // 登录注册页
+│   │   ├── OnlineShop
+│   │   │   └── OnlineShop.vue                  // 网上商城页
 │   │   ├── msite
 │   │   │   └── msite.vue                       // 商铺列表页
-│   │   ├── order
+│   │   ├── Order
 │   │   │   ├── children
 │   │   │   │   └── orderDetail.vue             // 订单详情页
-│   │   │   └── order.vue                       // 订单列表页
-│   │   ├── points
+│   │   │   └── Order.vue                       // 订单列表页
+│   │   ├── Points
 │   │   │   ├── children
+│   │   │   │   └── detail.md
 │   │   │   │   └── detail.vue                  // 积分说明
-│   │   │   └── points.vue                      // 积分页
+│   │   │   └── Points.vue                      // 积分页
 │   │   ├── profile
 │   │   │   ├── children
 │   │   │   │   ├── children
@@ -92,51 +95,58 @@
 │   │   │   │   ├── info.vue                    // 帐户信息
 │   │   │   │   └── setusername.vue             // 重置用户名
 │   │   │   └── profile.vue                     // 个人中心
-│   │   ├── search
-│   │   │   └── search.vue                      // 搜索页
-│   │   ├── service
+│   │   ├── Search
+│   │   │   └── Search.vue                      // 搜索页
+│   │   ├── Service
 │   │   │   ├── children
 │   │   │   │   └── questionDetail.vue          // 问题详情
-│   │   │   └── service.vue                     // 服务中心
-│   │   ├── shop
-│   │   │   ├── children
-│   │   │   │   ├── children
-│   │   │   │   │   └── shopSafe.vue            // 商铺认证信息页
-│   │   │   │   ├── foodDetail.vue              // 商铺信息页
-│   │   │   │   └── shopDetail.vue              // 单个商铺信息页
-│   │   │   └── shop.vue                        // 商铺筛选页
-│   │   └── vipcard
+│   │   │   └── Service.vue                     // 服务中心
+│   │   ├── Shop
+│   │   │   ├── ShopGoods
+│   │   │   │   └── ShopGoods.vue               // 商铺点餐页面
+│   │   │   ├── ShopInfo
+│   │   │   │   └── ShopInfo.vue               // 商铺信息页面
+│   │   │   ├── ShopRatings
+│   │   │   │   └── ShopRatings.vue            // 商铺商品评价页面
+│   │   │   └── Shop.vue                        // 商铺筛选页
+│   │   └── Vipcard
 │   │       ├── children
 │   │       │   ├── invoiceRecord.vue           // 购买记录
 │   │       │   ├── useCart.vue                 // 使用卡号购买
 │   │       │   └── vipDescription.vue          // 会员说明
-│   │       └── vipcard.vue                     // 会员卡办理页
-│   ├── plugins                                 // 引用的插件
+│   │       └── Vipcard.vue                     // 会员卡办理页
 │   ├── router
 │   │   └── router.js                           // 路由配置
-│   ├── service                                 // 数据交互统一调配
-│   │   ├── getData.js                          // 获取数据的统一调配文件，对接口进行统一管理
-│   │   └── tempdata                            // 开发阶段的临时数据
 │   ├── store                                   // vuex的状态管理
 │   │   ├── action.js                           // 配置actions
 │   │   ├── getters.js                          // 配置getters
-│   │   ├── index.js                            // 引用vuex，创建store
-│   │   ├── modules                             // store模块
-│   │   ├── mutation-types.js                   // 定义常量muations名
+│   │   ├── index.js                            // 引用vuex,作为store的入口文件
+│   │   ├── mutation-types.js                   // 定义常量muations名
 │   │   └── mutations.js                        // 配置mutations
+│   │   └── state.js                            // 配置state
 │   └── style
 │       ├── common.scss                         // 公共样式文件
-│       ├── mixin.scss                          // 样式配置文件
-│       └── swiper.min.css
 │   ├── App.vue                                 // 页面入口文件
 │   ├── main.js                                 // 程序入口文件，加载各种公共组件
-├── favicon.ico                                 // 图标
+├── static                                      // 静态资源配置
+│   ├── css
+│       ├── common.scss                         // 公共样式文件
+│   ├── .gitkeep                                // 虽然是空文件，但能保证static文件夹为空时git也照常提交该文件夹
+│   ├── favicon.ico                             // 网站ico图标
+├── test                                        // 用于测试的文件夹
+├── .babelrc                                    // 使用babel的配置规则
+├── .editorconfig                               // 编辑器配置规则，比如使用tab还是2/4空格
+├── .eslintignore                               // eslint检查忽略文件
+├── .eslintrc.js                                // eslint检查配置规则
+├── .gitignore                                  // git提交忽略文件
+├── .postcssrc.js                               // 使用posscss配置规则
 ├── index.html                                  // 入口html文件
+├── package.json                                // webpack安装的插件目录及配置
+├── README.md                                   // 项目说明文档
 .
-
-56 directories, 203 files
 ```
-``` bash
+
+``` 
 # install dependencies
 npm install
 
