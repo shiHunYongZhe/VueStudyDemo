@@ -107,8 +107,8 @@ body {
 .text-right {text-align: right}
 .text-center {text-align: center}
 .img-responsive {display: block;width: auto\9;width: 100%;height: auto}
-.img-cover {border: none;-o-object-fit: cover;object-fit: cover}
+.img-cover {border: none;-o-object-fit: cover;object-fit: cover} */
 .clearfix:after,.clearfix:before {content: "";display: table}		
 .clearfix:after {clear: both}
-.fl {float: left}
+/* .fl {float: left}
 .fr {float: right} */

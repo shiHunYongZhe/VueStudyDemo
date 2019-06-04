@@ -7,13 +7,13 @@
     <span>外卖</span>
     </a> -->
     <!-- 本应用不是单纯的单页面应用，不要在这里使用router-link标签和router-view -->
-    <section class="guide_item" @click="goto('./home')" :class="{on: isCurrent('/home')}">
+    <section class="guide_item" @click="goto({path: '/home'})" :class="{on: isCurrent('/home')}">
       <span class="item_icon">
         <i class="iconfont icon-food"></i>
       </span>
       <span>首页</span>
     </section>
-    <section class="guide_item" @click="goto('./search')" :class="{on: isCurrent('/search')}">
+    <section class="guide_item" @click = "goto({path: '/search'})" :class="{on: isCurrent('/search')}">
       <span class="item_icon">
         <i class="iconfont icon-search"></i>
       </span>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-
+import {mapState} from 'vuex'
 export default {
   methods: {
     goto (path) {
@@ -44,7 +44,12 @@ export default {
     isCurrent (path) {
       return this.$route.path === path
     }
-  }
+  },
+  computed: {
+    ...mapState([
+      'geohash'
+    ]),
+  },
 }
 </script>
 

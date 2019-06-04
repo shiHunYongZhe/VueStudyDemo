@@ -2,6 +2,7 @@
 State:状态对象
  */
 export default {
+  geohash: '40.10038,116.36867', // 地址geohash值
   latitude: 40.10038, // 当前位置纬度
   longitude: 116.36867, // 当前位置经度
   address: {}, // 地址相关信息对象

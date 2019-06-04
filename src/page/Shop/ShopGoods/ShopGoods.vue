@@ -44,7 +44,7 @@
           </li>
         </ul>
       </div>
-      <ShopCart />
+      <ShopCart/>
     </div>
     <Food :food="food" ref="food"/>
   </div>
@@ -61,7 +61,7 @@ export default {
     return {
       scrollY: 0, // 右侧 Y 轴滑动的坐标(越往下数值越小)
       tops: [], // 包含右侧所有分类小列表的 top 值
-      food: {} // 需要显示的food
+      food: {}, // 需要显示的food
     }
   },
   mounted () {
@@ -148,7 +148,7 @@ export default {
       this.food = food
       // 显示food组件 (在父组件中调用子组件对象的方法)
       this.$refs.food.toggleShow()
-    }
+    },
   },
   components: {
     CartControl,
@@ -160,6 +160,13 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "~common/stylus/mixins.styl"
+  @keyframes mymove{
+    0%   { transform: scale(1) }
+    25%  { transform: scale(.8) }
+    50%  { transform: scale(1.1) }
+    75%  { transform: scale(.9) }
+    100% { transform: scale(1) }
+  }
   .goods
     display: flex
     position: absolute
@@ -202,6 +209,8 @@ export default {
           bottom-border-1px(rgba(7, 17, 27, 0.1))
           font-size: 12px
     .foods-wrapper
+      &.move_in_cart
+        animation: mymove .5s ease-in-out
       flex: 1
       text-align left
       .title
@@ -255,4 +264,11 @@ export default {
             position: absolute
             right: 0
             bottom: 12px
+.move_dot
+  position fixed
+  bottom 30px
+  left 30px
+  svg
+    wh(20px, 20px)
+    fill #3190e8
 </style>

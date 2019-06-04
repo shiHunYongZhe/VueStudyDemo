@@ -1,8 +1,11 @@
 <template>
   <section class="home">
-    <HeaderTop title="首页" :isBack="false">
+    <HeaderTop :isBack="false">
       <router-link class="header_search" slot="left" to="/search">
         <i class="iconfont icon-sousuo"></i>
+      </router-link>
+      <router-link class="header_title" slot="center" to="/city">
+        <span class="header_title_text ellipsis">{{area}}</span>
       </router-link>
       <router-link class="header_login" slot="right" :to="userInfo._id ? '/userinfo' : '/login'">
         <span class="header_login_text"  v-if="!userInfo._id">登录 | 注册</span>
@@ -47,9 +50,6 @@ import {mapState, mapActions} from 'vuex'
 export default {
   data () {
     return {
-      userInfo: {
-        _id: ''
-      },
       baseImageUrl: 'https://fuss10.elemecdn.com'
     }
   },
@@ -61,7 +61,10 @@ export default {
     ...mapActions(['getCategorys', 'getShops'])
   },
   computed: {
-    ...mapState(['categorys', 'shops']),
+    ...mapState(['userInfo', 'categorys', 'shops']),
+    area () {
+      return this.$route.query.name || '选择地址'
+    },
     categorysArr () {
       // 1.先从当前组件中得到所有食品分类的一维数组
       const {categorys} = this
@@ -124,7 +127,7 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 // 由于swiper-pagination-bullet的问题，这里不要加scope
 @import "../../../node_modules/swiper/dist/css/swiper.min.css"
-@import "~common/stylus/mixins.styl"
+@import "~common/stylus/mixins.styl" 
 .icon-sousuo
   sc(25px, #fff)
 .home_nav

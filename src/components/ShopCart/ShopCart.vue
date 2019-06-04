@@ -129,7 +129,6 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/mixins.styl"
-
   .shopcart
     position fixed
     left 0

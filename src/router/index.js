@@ -26,7 +26,8 @@ import Router from 'vue-router'
 //   name: 'Order',
 //   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
 // }
-
+const city = () => import('../page/City/City.vue')
+const searchArea = () => import('../page/City/children/searchArea.vue')
 const home = () => import('../page/Home/Home.vue')
 const search = () => import('../page/Search/Search.vue')
 const order = () => import('../page/Order/Order.vue')
@@ -100,10 +101,30 @@ Vue.use(Router)
 export default new Router({
   //  去掉地址中的哈希#，改成历史模式
   mode: 'history',
+  // scrollBehavior (to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     return savedPosition
+  //   } else {
+  //     if (from.meta.showFooter) {
+  //       from.meta.savedPosition = document.body.scrollTop
+  //     }
+  //     return { x: 0, y: to.meta.savedPosition || 0 }
+  //   }
+  // },
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/city'
+    },
+    {
+      path: '/city',
+      name: 'city',
+      component: city
+    },
+    {
+      path: '/searchArea/:cityid',
+      name: 'searchArea',
+      component: searchArea
     },
     {
       path: '/home',
@@ -141,18 +162,12 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: login,
-      meta: {
-        showFooter: true
-      }
+      component: login
     },
     {
       path: '/forget',
       name: 'forget',
-      component: forget,
-      meta: {
-        showFooter: true
-      }
+      component: forget
     },
     {
       path: '/balance',

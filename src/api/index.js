@@ -81,15 +81,66 @@ export const reqAddress = geohash => ajax(`${BASE_URL}/position/${geohash}`)
 /**
  * 获取红包
 */
-export const getHongbaoNum = id => fetch('/promotion/v2/users/' + id + '/hongbaos?limit=20&offset=0')
+export const getHongbaoNum = id => ajax('/promotion/v2/users/' + id + '/hongbaos?limit=20&offset=0')
 /**
  * 获取过期红包
 */
-export const getExpired = id => fetch('/promotion/v2/users/' + id + '/expired_hongbaos?limit=20&offset=0')
+export const getExpired = id => ajax('/promotion/v2/users/' + id + '/expired_hongbaos?limit=20&offset=0')
 /**
  * 兑换红包
 */
-export const exChangeHongbao = (id, exchangeCode, captchaCode) => fetch('/v1/users/' + id + '/hongbao/exchange', {
+export const exChangeHongbao = (id, exchangeCode, captchaCode) => ajax('/v1/users/' + id + '/hongbao/exchange', {
   exchangeCode,
   captchaCode
 }, 'POST')
+
+/**
+ * 获取当前所在城市
+ */
+
+export const currentcity = number => ajax('/v1/cities/' + number)
+
+/**
+ * 获取搜索地址
+ */
+
+export const searchplace = (cityid, value) => ajax('/v1/pois', {
+  type: 'search',
+  city_id: cityid,
+  keyword: value
+})
+
+/**
+ * 获取首页默认地址
+ */
+
+export const cityGuess = () => ajax('/v1/cities', {
+  type: 'guess'
+})
+
+/**
+ * 获取首页热门城市
+ */
+
+export const hotcity = () => ajax('/v1/cities', {
+  type: 'hot'
+})
+
+/**
+ * 获取首页所有城市
+ */
+
+export const groupcity = () => ajax('/v1/cities', {
+  type: 'group'
+})
+
+/**
+ * 获取search页面搜索结果
+ */
+
+export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {
+  'extras[]': 'restaurant_activity',
+  geohash,
+  keyword,
+  type: 'search'
+})
