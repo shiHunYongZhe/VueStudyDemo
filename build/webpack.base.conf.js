@@ -47,6 +47,7 @@ module.exports = {
       'components': path.resolve(__dirname, '../src/components')
     }
   },
+  // 加载器，关于各个加载器的参数配置。
   module: {
     rules: [
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
