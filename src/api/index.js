@@ -103,17 +103,15 @@ export const currentcity = number => ajax('/v1/cities/' + number)
 /**
  * 获取搜索地址
  */
-
 export const searchplace = (cityid, value) => ajax('/v1/pois', {
   type: 'search',
   city_id: cityid,
   keyword: value
 })
-
+// export const searchplace = (cityid, value) => get('/v1/pois?type=search&city_id=' + cityid + '&keyword=' + value)
 /**
  * 获取首页默认地址
  */
-
 export const cityGuess = () => ajax('/v1/cities', {
   type: 'guess'
 })
