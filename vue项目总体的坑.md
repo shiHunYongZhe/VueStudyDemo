@@ -25,5 +25,5 @@ vscode 的插件安装完成后还不用重启整个程序，只要重新加载�
         "plugins": ["html"]
     },
 ```
-# 初始化vue项目，报错This is probably not a problem with npm,there is likely additional logging output above
+# npm install之后npm run dev，报错This is probably not a problem with npm,there is likely additional logging output above
 npm install之后，运行 npm i -D webpack-dev-server@2.9.7
