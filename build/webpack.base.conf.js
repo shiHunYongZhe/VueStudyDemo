@@ -8,17 +8,17 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-// 由于检查太麻烦了，我自己注释掉了eslint工具
-// const createLintingRule = () => ({
-//   test: /\.(js|vue)$/,
-//   loader: 'eslint-loader',
-//   enforce: 'pre',
-//   include: [resolve('src'), resolve('test')],
-//   options: {
-//     formatter: require('eslint-friendly-formatter'),
-//     emitWarning: !config.dev.showEslintErrorsInOverlay
-//   }
-// })
+// 要是嫌代码检查太麻烦，可以注释掉eslint工具（1）
+const createLintingRule = () => ({
+  test: /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src'), resolve('test')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+    emitWarning: !config.dev.showEslintErrorsInOverlay
+  }
+})
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -50,7 +50,8 @@ module.exports = {
   // 加载器，关于各个加载器的参数配置。
   module: {
     rules: [
-      // ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // 要是嫌代码检查太麻烦，可以注释掉eslint工具（2）
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',

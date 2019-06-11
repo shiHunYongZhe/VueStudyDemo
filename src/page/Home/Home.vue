@@ -111,7 +111,7 @@ export default {
             el: '.swiper-pagination',
             clickable: true
           }
-        }) 
+        })
       })
     }
   },
@@ -127,7 +127,7 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 // 由于swiper-pagination-bullet的问题，这里不要加scope
 @import "../../../node_modules/swiper/dist/css/swiper.min.css"
-@import "~common/stylus/mixins.styl" 
+@import "~common/stylus/mixins.styl"
 .icon-sousuo
   sc(25px, #fff)
 .home_nav

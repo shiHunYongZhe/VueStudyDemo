@@ -48,8 +48,8 @@ export default {
   computed: {
     ...mapState([
       'geohash'
-    ]),
-  },
+    ])
+  }
 }
 </script>
 

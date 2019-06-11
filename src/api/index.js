@@ -108,7 +108,7 @@ export const searchplace = (cityid, value) => ajax('/v1/pois', {
   city_id: cityid,
   keyword: value
 })
-// export const searchplace = (cityid, value) => get('/v1/pois?type=search&city_id=' + cityid + '&keyword=' + value)
+
 /**
  * 获取首页默认地址
  */

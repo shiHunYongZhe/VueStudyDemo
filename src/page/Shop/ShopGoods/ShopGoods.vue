@@ -61,7 +61,7 @@ export default {
     return {
       scrollY: 0, // 右侧 Y 轴滑动的坐标(越往下数值越小)
       tops: [], // 包含右侧所有分类小列表的 top 值
-      food: {}, // 需要显示的food
+      food: {} // 需要显示的food
     }
   },
   mounted () {
@@ -148,7 +148,7 @@ export default {
       this.food = food
       // 显示food组件 (在父组件中调用子组件对象的方法)
       this.$refs.food.toggleShow()
-    },
+    }
   },
   components: {
     CartControl,

@@ -9,7 +9,7 @@
       </section>
     </section>
     <transition name="loading">
-      <Loading v-show="showLoading"/>
+      <Loading v-show="showLoading" />
     </transition>
   </div>
 </template>
@@ -18,16 +18,16 @@
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import Loading from '../../components/Loading/Loading'
 export default {
-  data() {
+  data () {
     return {
-      showLoading: ture
+      showLoading: true
     }
   },
   components: {
     HeaderTop,
     Loading
   },
-  mounted() {
+  mounted () {
     this.showLoading = false
   }
 }
