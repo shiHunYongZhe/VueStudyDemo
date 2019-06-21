@@ -225,10 +225,10 @@ export default {
       background: #f3f5f7
     .ratingselect
       .rating-type
-        padding: 18px 0
-        margin: 0 18px
-        border-1px(rgba(7, 17, 27, 0.1))
-        font-size: 0
+        padding 18px 0
+        margin 0 18px
+        bottom-border-1px(rgba(7, 17, 27, 0.1))
+        font-size 0
         .block
           display: inline-block
           padding: 8px 12px
@@ -315,7 +315,6 @@ export default {
               color: $yellow
             .icon-thumb_down
               color: rgb(147, 153, 159)
-
             .item
               padding: 0 6px
               border: 1px solid rgba(7, 17, 27, 0.1)

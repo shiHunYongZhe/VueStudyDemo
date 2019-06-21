@@ -14,6 +14,8 @@ import {
   reqShopGoods,
   reqShopInfo
 } from '../api'
+// 也可直接 import * as types from './mutation-types'
+// 调用时前面加上 types. 即可，如RECEIVE_ADDRESS改为types.RECEIVE_ADDRESS
 import {
   RECEIVE_ADDRESS,
   RECEIVE_CATEGORYS,

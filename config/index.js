@@ -75,6 +75,7 @@ module.exports = {
 
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
+    // 线上代码一般是混淆压缩的，无法正确清晰地定位报错代码的位置，所以需要启用 `sourceMap`，例如，在 webpack打包工具中启用：
     devtool: '#source-map',
 
     // Gzip off by default as many popular static hosts such as

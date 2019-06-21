@@ -91,18 +91,6 @@ export default {
   watch: {
     categorys (value) {
       // 这里不要使用setTimeOut(fn, 0),虽然可以实现效果, 但是语义不准确,不符合规范
-      // setTimeout(() => {
-      //   // 创建一个Swiper实例对象来实现轮播
-      //   // eslint-disable-next-line no-new
-      //   new Swiper('.swiper-container', {
-      //     autoplay: true,
-      //     // 如果需要分页器
-      //     pagination: {
-      //       el: '.swiper-pagination',
-      //       clickable: true
-      //     }
-      //   })
-      // }, 100)
       this.$nextTick(() => {
         // eslint-disable-next-line no-new
         new Swiper('.swiper-container', {
