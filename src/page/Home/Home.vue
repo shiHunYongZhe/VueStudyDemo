@@ -19,12 +19,12 @@
       <div class="swiper-container" v-if="categorys.length">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(pages, index) in categorysArr" :key="index">
-            <a href="" class="link_to_food" v-for="(data, index) in  pages" :key="index">
+            <div class="link_to_food" v-for="(data, index) in  pages" :key="index" @click.stop="">
               <div class="food_container">
                 <img :src="baseImageUrl + data.image_url" alt="">
               </div>
               <span>{{data.title}}</span>
-            </a>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination"></div>

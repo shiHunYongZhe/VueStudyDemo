@@ -25,11 +25,18 @@ time, mark, audio, video, input {
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, menu, nav, section {
+footer, header, menu, nav, section, iframe {
   display: block;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   line-height: 1;
 }
 
@@ -90,22 +97,12 @@ audio,canvas,video {
     display: inline-block;
 }
 
-fieldset,img{
-	border:0;
-}
-
-iframe{
-	display:block;
-}
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  -webkit-text-size-adjust: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+/*
+  * 图片自适应 - image responsize 
+  * 1. 清空浏览器对图片的设置
+  * 2. <div>图片</div> 的情况下，图片会撑高 div，这么设置可以清除该影响
+*/
+img { border: 0; display: inline-block; width: 100%; max-width: 100%; height: auto; vertical-align: middle; }
 
 /*显示省略号*/
 .ellipsis{
@@ -113,13 +110,9 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* .circle {border-radius: 50%}
-.text-left {text-align: left}
-.text-right {text-align: right}
-.text-center {text-align: center}
-.img-responsive {display: block;width: auto\9;width: 100%;height: auto}
-.img-cover {border: none;-o-object-fit: cover;object-fit: cover} */
 .clearfix:after,.clearfix:before {content: "";display: table;line-height: 0;}		
 .clearfix:after {clear: both}
-/* .fl {float: left}
-.fr {float: right} */
+/** 设置input的placeholder - set input placeholder **/
+input::-webkit-input-placeholder { color: #919191; font-size: .32rem } /* Webkit browsers */
+input::-moz-placeholder { color: #919191; font-size: .32rem } /* Mozilla Firefox */
+input::-ms-input-placeholder { color: #919191; font-size: .32rem } /* Internet Explorer */

@@ -1,4 +1,5 @@
 {
+  // 设定转码规则
   "presets": [
     ["env", {
       "modules": false,
@@ -8,7 +9,9 @@
     }],
     "stage-2"
   ],
+  // 转码用的插件
   "plugins": ["transform-vue-jsx", "transform-runtime"],
+  // 对BABEL_ENV或者NODE_ENV指定的不同的环境变量，进行不同的编译操作
   "env": {
     "test": {
       "presets": ["env", "stage-2"]
