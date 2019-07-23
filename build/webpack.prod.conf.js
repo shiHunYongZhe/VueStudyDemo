@@ -34,6 +34,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new UglifyJsPlugin({
+      // 开启后打包第二次的时间是第一次的一半。
+      //cache: true,
       uglifyOptions: {
         compress: {
           warnings: false

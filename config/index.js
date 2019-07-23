@@ -72,7 +72,7 @@ module.exports = {
     /**
      * Source Maps
      */
-
+    // 项目打包后，我们的代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确知道是哪里的代码出错了，而开启了 productionSourceMap，就会自动生成一些 map 文件，准确地告诉我们哪一行那一列出错。关闭了 productionSourceMap 后，一方面可以减少上线代码包的大小，另一方面提高系统的安全性。
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
     // 线上代码一般是混淆压缩的，无法正确清晰地定位报错代码的位置，所以需要启用 `sourceMap`，例如，在 webpack打包工具中启用：
@@ -80,6 +80,7 @@ module.exports = {
 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
+    // vue开启gzip，默认关闭（false）
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
