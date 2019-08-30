@@ -49,8 +49,9 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
+    // 不会报具体的错误，集中在打包后的文件中，不会产生map文件
     devtool: 'cheap-module-eval-source-map',
-
+    
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting

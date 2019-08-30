@@ -16,6 +16,7 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
+    // source-map 源码映射（出错了标识当前报错的列，帮助调试源代码）
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development

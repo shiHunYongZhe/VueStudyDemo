@@ -23,7 +23,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.js'// 入口文件
   },
   output: {
     // 选择这个目录为输出目录，此处为项目下的子目录dist文件夹（自动生成）
