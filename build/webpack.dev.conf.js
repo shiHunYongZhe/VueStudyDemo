@@ -6,7 +6,6 @@ const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// 自动生成html文件的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
@@ -64,14 +63,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      // 处理后生成的文件
       filename: 'index.html',
-      // 处理的源文件
       template: 'index.html',
-      // css,js文件路径自动拼接到index.html里面对应的位置,依赖注入
       inject: true
-      // 开发环境配置ico图标,一般在index.html中使用link即可，无需在此配置
-      // favicon: './favicon.ico'
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

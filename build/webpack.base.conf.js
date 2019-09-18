@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-// node 的path模块自动拼接路径
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -23,7 +22,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'// 入口文件
+    app: './src/main.js'
   },
   output: {
     // 选择这个目录为输出目录，此处为项目下的子目录dist文件夹（自动生成）
@@ -34,7 +33,6 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  // watch: true 文件改变自动产出build.js，默认不设置
   resolve: {
   // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
   // 使用scss的时候，还可以加上 .css 和 .scss
@@ -62,6 +60,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
+      //引入的markdown文件需要解析器
       {
         test: /.md$/,
         loader: 'text-loader'

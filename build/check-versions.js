@@ -1,10 +1,7 @@
 'use strict'
-// 定义终端命令行的样式（比如哪些用黑色，哪些用绿色)
 const chalk = require('chalk')
-// 校验版本依赖，比如要大于1.4.3
 const semver = require('semver')
 const packageConfig = require('../package.json')
-// 执行终端的命令
 const shell = require('shelljs')
 
 function exec (cmd) {
@@ -32,7 +29,6 @@ module.exports = function () {
 
   for (let i = 0; i < versionRequirements.length; i++) {
     const mod = versionRequirements[i]
-    // 如果版本不符合，则输出以下信息
     if (!semver.satisfies(mod.currentVersion, mod.versionRequirement)) {
       warnings.push(mod.name + ': ' +
         chalk.red(mod.currentVersion) + ' should be ' +
