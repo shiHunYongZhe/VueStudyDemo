@@ -1,6 +1,7 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
+
 const path = require('path')
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
       //     '^/api': ''
       //   }
       // }
-       '/v1': {
+        '/v1': {
          target: 'http://cangdu.org:8001'
        },
        '/v4': {
@@ -36,22 +37,14 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    // Use Eslint Loader?
-    // If true, your code will be linted during bundling and
-    // linting errors and warnings will be shown in the console.
-    useEslint: true,
-    // If true, eslint errors and warnings will also be shown in the error overlay
-    // in the browser.
-    showEslintErrorsInOverlay: false,
-
+    
     /**
      * Source Maps
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    // 不会报具体的错误，集中在打包后的文件中，不会产生map文件
     devtool: 'cheap-module-eval-source-map',
-    
+
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
@@ -67,21 +60,18 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    // 一般npm run build 的时候路径要改成'./'
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps
      */
-    // 项目打包后，我们的代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确知道是哪里的代码出错了，而开启了 productionSourceMap，就会自动生成一些 map 文件，准确地告诉我们哪一行那一列出错。关闭了 productionSourceMap 后，一方面可以减少上线代码包的大小，另一方面提高系统的安全性。
+
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
-    // 线上代码一般是混淆压缩的，无法正确清晰地定位报错代码的位置，所以需要启用 `sourceMap`，例如，在 webpack打包工具中启用：
     devtool: '#source-map',
 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
-    // vue开启gzip，默认关闭（false）
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
