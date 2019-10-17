@@ -41,7 +41,7 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="" alt="captcha" @click="getCaptcha" ref="captcha">
+                <img class="get_verification" src="http://hjzadmin:82/admin/login/checkVerify" alt="captcha" @click="getCaptcha" ref="captcha">
               </section>
             </section>
           </div>
@@ -172,9 +172,11 @@ export default {
     // 获取一个新的图片验证码
     getCaptcha () {
       // 每次指定的src要不一样
-      axios.jsonp('http://cangdu.org:8001/v1/captchas', {}).then(res => {
-        this.$refs.captcha = res.code
-      })
+       this.$refs.captcha.src = 'http://hjzadmin:82/admin/login/checkVerify';
+      // axios.get('http://hjzadmin:82/admin/login/checkVerify?time=' + Date.now()).then(res => {
+      //   this.$refs.captcha = res;
+      // console.log(res);
+      // })
       // 'http://localhost:4000/captcha?time=' + Date.now()
     }
   },
@@ -237,11 +239,12 @@ export default {
               .get_verification
                 position absolute
                 top 50%
-                right 10px
+                right 0px
                 transform translateY(-50%)
                 border 0
                 sc(14px, #ccc)
                 background transparent
+                width 125px
                 &.right_phone
                   color black
             .login_verification
