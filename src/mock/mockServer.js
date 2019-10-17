@@ -22,7 +22,7 @@ Mock.mock('/shops', {code: 0, data: shop})
 // 获取首页分类列表
 Mock.mock('/index_category', {code: 0, data: indexCategory})
 // 获取首页分类列表
-Mock.mock('/v1/cities/guess', cities.guess)
-Mock.mock('/v1/cities/hot', cities.hot)
-Mock.mock('/v1/cities/group', group)
+Mock.mock('/cities/guess', cities.guess)
+Mock.mock('/cities/hot', cities.hot)
+Mock.mock('/cities/group', group)
 // export default ???  不需要向外暴露任何数据, 只需要保存能执行即可

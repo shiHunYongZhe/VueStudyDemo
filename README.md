@@ -159,15 +159,6 @@
         组件
           dispatch(): 异步获取后台数据到vuex的state
           mapState(): 从vuex的state中读取对应的数据
-          模板中显示
-    2). 初始显示异常
-        情况1: Cannot read property 'xxx' of undefined"
-        原因: 初始值是空对象, 内部没有数据, 而模块中直接显示3层表达式
-        解决: 使用v-if指令
-        
-        情况2: Cannot read property 'xxx' of null"
-     
-    3). vue transition动画
 
 # 04
 ## 1. ShopGoods组件
@@ -207,7 +198,6 @@
 
 ## 3. ShopCart组件
     1). 使用vuex管理购物项数据: cartFoods
-    2). 解决几个功能性bug
 
 ## 4. Food组件
     1). 父子组件:
@@ -407,22 +397,14 @@
 
 ``` 
 # install dependencies
-yarn install
+npm install | yarn 
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm/yarn run dev
 
 # build for production with minification
-npm run build
+npm/yarn run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

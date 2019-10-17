@@ -112,19 +112,19 @@ export const searchplace = (cityid, value) => ajax('/v1/pois', {
 /**
  * 获取首页默认地址
  */
-export const cityGuess = () => ajax('/v1/cities/guess')
+export const cityGuess = () => ajax('/cities/guess')
 
 /**
  * 获取首页热门城市
  */
 
-export const hotcity = () => ajax('/v1/cities/hot')
+export const hotcity = () => ajax('/cities/hot')
 
 /**
  * 获取首页所有城市
  */
 
-export const groupcity = () => ajax('/v1/cities/group')
+export const groupcity = () => ajax('/cities/group')
 
 /**
  * 获取search页面搜索结果

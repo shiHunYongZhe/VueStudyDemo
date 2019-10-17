@@ -175,7 +175,6 @@ export default {
        this.$refs.captcha.src = 'http://hjzadmin:82/admin/login/checkVerify';
       // axios.get('http://hjzadmin:82/admin/login/checkVerify?time=' + Date.now()).then(res => {
       //   this.$refs.captcha = res;
-      // console.log(res);
       // })
       // 'http://localhost:4000/captcha?time=' + Date.now()
     }

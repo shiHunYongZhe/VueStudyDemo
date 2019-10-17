@@ -21,9 +21,9 @@ module.exports = {
       //     '^/api': ''
       //   }
       // }
-      //   '/v1': {
-      //    target: 'http://cangdu.org:8001'
-      //  },
+        '/v1': {
+         target: 'http://cangdu.org:8001'
+       },
        '/v4': {
         target: 'http://cangdu.org:8001'
       }
