@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+// import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -10,10 +10,7 @@ import vueLazyload from 'vue-lazyload'
 import {Button} from 'mint-ui'
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer'
-// import loading from './common/imgs/loading.gif'
-// Vue.use(vueLazyload, {
-//   loading
-// })
+
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoader', function () {
     fastclick.attach(document.body)
@@ -36,6 +33,10 @@ if ('addEventListener' in document) {
 // })(document, window)
 
 Vue.component(Button.name, Button)
+// import loading from './common/imgs/loading.gif'
+// Vue.use(vueLazyload, {
+//   loading
+// })
 Vue.use(vueLazyload, {
   loading: require('./common/imgs/loading.gif')
 })
