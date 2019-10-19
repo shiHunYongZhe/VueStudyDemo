@@ -3,7 +3,7 @@
  * @param {*} url 请求路径，默认为空
 */
 import ajax from './ajax'
-const BASE_URL = '/api'
+const BASE_URL = 'http://cangdu.org:8001'
 /**
  * 获取 home 页面食品分类列表
  */
