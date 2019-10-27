@@ -27,7 +27,7 @@
 
 <script>
 import HeaderTop from '../../../components/HeaderTop/HeaderTop'
-import {currentcity, searchplace} from '../../../api/index'
+// import {currentcity, searchplace} from '../../../api/index'
 import {getStore, setStore, removeStore} from '../../../api/utils'
 
 export default {
@@ -37,7 +37,7 @@ export default {
       cityid: '', // 当前城市id
       cityname: '', // 当前城市名字
       placelist: [], // 搜索城市列表
-      placeHistory: [], // 历史搜索记录
+      placeHistory: [{"name":"仲恺路[公交站]","address":"11路,811路,968路","latitude":23.104531,"longitude":113.282063,"geohash":"23.104531,113.282063"},{"name":"仲恺农业工程学院(白云校区)","address":"广东省广州市白云区广新路388号","latitude":23.370824,"longitude":113.445463,"geohash":"23.370824,113.445463"}], // 历史搜索记录
       historytitle: true, // 默认显示搜索历史头部，点击搜索后隐藏
       placeNone: false// 搜索无结果，显示提示信息
     }
@@ -46,9 +46,10 @@ export default {
   mounted () {
     this.cityid = this.$route.params.cityid
     // 获取当前城市名字
-    currentcity(this.cityid).then(res => {
-      this.cityname = res.name
-    })
+    // currentcity(this.cityid).then(res => {
+      // this.cityname = res.name
+    // })
+    setStore('placeHistory', this.placeHistory)
     this.initData()
   },
 
@@ -69,11 +70,12 @@ export default {
     postpois () {
       // 输入值不为空时才发送信息
       if (this.inputVaule) {
-        searchplace(this.cityid, this.inputVaule).then(res => {
+        // searchplace(this.cityid, this.inputVaule).then(res => {
           this.historytitle = false
-          this.placelist = res
-          this.placeNone = !res.length
-        })
+          // this.placelist = res
+          this.placelist = this.inputVaule
+          // this.placeNone = !res.length
+        // })
       }
     },
     /**
@@ -101,7 +103,7 @@ export default {
       } else {
         this.placeHistory.push(choosePlace)
       }
-      setStore('placeHistory', this.placeHistory)
+      // setStore('placeHistory', this.placeHistory)
       this.$router.push({path: '/home', query: {name}})
     },
     clearAll () {
