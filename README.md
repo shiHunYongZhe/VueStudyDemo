@@ -81,12 +81,9 @@
 ├── src                                         // 源码目录
 │   ├── api                                     // 数据交互统一调配
 │   │   ├── ajax                                // ajax封装
-<<<<<<< HEAD
 │   │   ├── index                               // 获取数据的统一调配文件，对接
 │   │   ├── utils                               // 工具函数
-=======
 │   │   ├── index                               // 获取数据的统一调配文件，对接口进行统一管理
->>>>>>> 20b1e0d696adc99f3476c05266156e1df63d3296
 │   ├── common                                  // 公共文件
 │   │   ├── imgs                                // 图片文件夹 
 │   │   └── stylus                              // 公共stylus组件
@@ -118,17 +115,14 @@
 │   │   │       ├── hbDescription.md
 │   │   │       ├── hbDescription.vue           // 红包说明
 │   │   │       └── hbHistory.vue               // 历史红包
-<<<<<<< HEAD
 │   │   ├── City
 │   │   │   │   ├── children
 │   │   │   │   │   ├── searchArea.vue          // 添加地址页
 │   │   │   └── City.vue                        // 当前城市页
 │   │   ├── confirmOrder(未添加)
-=======
 │   │   ├── city
 │   │   │   └── city.vue                        // 当前城市页
 │   │   ├── confirmOrder
->>>>>>> 20b1e0d696adc99f3476c05266156e1df63d3296
 │   │   │   ├── children
 │   │   │   │   ├── children
 │   │   │   │   │   ├── addAddress.vue          // 添加地址页
@@ -142,11 +136,8 @@
 │   │   │   └── confirmOrder.vue                // 确认订单页
 │   │   ├── Download
 │   │   │   └── Download.vue                    // 下载App
-<<<<<<< HEAD
-=======
 │   │   ├── find
 │   │   │   └── find.vue                        // 发现页
->>>>>>> 20b1e0d696adc99f3476c05266156e1df63d3296
 │   │   ├── food
 │   │   │   └── food.vue                        // 食品筛选排序页
 │   │   ├── Forget
@@ -157,31 +148,25 @@
 │   │   │   └── Login.vue                       // 登录注册页
 │   │   ├── OnlineShop
 │   │   │   └── OnlineShop.vue                  // 网上商城页
-<<<<<<< HEAD
 │   │   ├── Order
 │   │   │   ├── children(未添加)
-=======
 │   │   ├── msite
 │   │   │   └── msite.vue                       // 商铺列表页
 │   │   ├── Order
 │   │   │   ├── children
->>>>>>> 20b1e0d696adc99f3476c05266156e1df63d3296
 │   │   │   │   └── orderDetail.vue             // 订单详情页
 │   │   │   └── Order.vue                       // 订单列表页
 │   │   ├── Points
 │   │   │   ├── children
-<<<<<<< HEAD
 │   │   │   │   └── detail.vue                  // 积分说明
 │   │   │   └── Points.vue                      // 积分页
 │   │   ├── profile
 │   │   │   ├── children(未添加)
-=======
 │   │   │   │   └── detail.md
 │   │   │   │   └── detail.vue                  // 积分说明
 │   │   │   └── Points.vue                      // 积分页
 │   │   ├── profile
 │   │   │   ├── children
->>>>>>> 20b1e0d696adc99f3476c05266156e1df63d3296
 │   │   │   │   ├── children
 │   │   │   │   │   ├── address.vue             // 地址
 │   │   │   │   │   └── children
@@ -229,16 +214,19 @@
 │       ├── common.scss                         // 公共样式文件
 │   ├── .gitkeep                                // 虽然是空文件，但能保证static文件夹为空时git也照常提交该文件夹
 │   ├── favicon.ico                             // 网站ico图标
-├── test                                        // 用于测试的文件夹
 ├── .babelrc                                    // 使用babel的配置规则
 ├── .editorconfig                               // 编辑器配置规则，比如使用tab还是2/4空格
-├── .eslintignore                               // eslint检查忽略文件
-├── .eslintrc.js                                // eslint检查配置规则
 ├── .gitignore                                  // git提交忽略文件
 ├── .postcssrc.js                               // 使用posscss配置规则
 ├── index.html                                  // 入口html文件
 ├── package.json                                // 应用包配置文件
 ├── README.md                                   // 项目说明文档
+
+// 这些后面我删除了
+├── test                                        // 用于测试的文件夹
+├── .eslintignore                               // eslint检查忽略文件
+├── .eslintrc.js                                // eslint检查配置规则
+
 .
 ```
 
