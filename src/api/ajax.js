@@ -1,11 +1,6 @@
 /* eslint-disable no-tabs */
-/*
- * 向外部暴漏一个函数 ajax
- * @param {*} url 请求路径，默认为空
- * @param {*} data 请求参数，默认为空对象
- * @param {*} type 请求方法，默认为GET
-*/
 import axios from 'axios'
+
 export default function ajax (url = '', data = {}, type = 'GET') {
   // 返回值是个 Promise 对象（异步返回的数据是response.data，而不是response）
   return new Promise(function (resolve, reject) {
@@ -37,13 +32,8 @@ export default function ajax (url = '', data = {}, type = 'GET') {
   })
 }
 
-// export function get (url) {
-//   return new Promise(function (resolve, reject) {
-//     axios.get(url).then(res => resolve(res.data)).catch(err => reject(err))
-//   })
-// }
 
-// 另外一种封装方法
+// 另外一种封装方法，使用fetch和原生ajax，不需要axios
 // export default function async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 // 	type = type.toUpperCase();
 

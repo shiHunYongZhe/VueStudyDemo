@@ -10,33 +10,18 @@ import vueLazyload from 'vue-lazyload'
 import {Button} from 'mint-ui'
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer'
-
+// 在移动端（微信等）使用 vConsole调试console
+// import Vconsole from 'vconsole'
+// let vConsole = new Vconsole()
+// export default vConsole
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoader', function () {
     fastclick.attach(document.body)
   })
 }
 
-// 视口调整自动调整root-font-size
-// (function (doc, win) {
-//   // eslint-disable-next-line one-var
-//   var docEl = doc.documentElement,
-//     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-//     recalc = function () {
-//       var clientWidth = docEl.clientWidth
-//       if (!clientWidth) return
-//       docEl.style.fontSize = 20 * (clientWidth / 320) + 'px'
-//     }
-//   if (!doc.addEventListener) return
-//   win.addEventListener(resizeEvt, recalc, false)
-//   doc.addEventListener('DOMContentLoaded', recalc, false)
-// })(document, window)
-
 Vue.component(Button.name, Button)
-// import loading from './common/imgs/loading.gif'
-// Vue.use(vueLazyload, {
-//   loading
-// })
+
 Vue.use(vueLazyload, {
   loading: require('./common/imgs/loading.gif')
 })

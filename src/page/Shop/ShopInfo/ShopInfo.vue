@@ -157,7 +157,7 @@ export default {
               background-color rgb(240, 115, 115)
           &.activity-orange
             .content-tag
-              background-color: rgb(241, 136, 79)
+              background-color rgb(241, 136, 79)
           .content-tag
             display inline-block
             border-radius 2px
@@ -178,19 +178,19 @@ export default {
               flex-j(center)
               align-items center
       .pic-wrapper
-        width: 100%
-        overflow: hidden
-        white-space: nowrap
+        width 100%
+        overflow hidden
+        white-space nowrap
         margin-top 16px
         .pic-list
-          font-size: 0
+          font-size 0
           .pic-item
-            display: inline-block
-            margin-right: 6px
-            width: 120px
-            height: 90px
+            display inline-block
+            margin-right 6px
+            width 120px
+            height 90px
             &:last-child
-              margin: 0
+              margin 0
       .detail
         margin-bottom -16px
         > li

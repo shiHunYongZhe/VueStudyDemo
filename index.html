@@ -23,5 +23,10 @@
     <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
     <script src="https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
     <!-- built files will be auto injected -->
+    <script>
+      if (!/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        alert('请在移动端打开，体验会更好噢')
+      }
+    </script>
   </body>
 </html>

@@ -136,7 +136,7 @@ export default {
         padding: 0 6px
         sc(14px, #333)
       .city_submit
-        background-color: $green;
+        background-color: $green
         sc(14px, #fff)
   .pois_search_history
     text-align left
@@ -145,8 +145,8 @@ export default {
     padding-left 10px
     font(12px, 18px)
   .getpois_ul
-    background-color: #fff;
-    border-top: 1px solid $bc;
+    background-color: #fff
+    border-top 1px solid $bc
     li
       text-align left
       margin: 0 auto

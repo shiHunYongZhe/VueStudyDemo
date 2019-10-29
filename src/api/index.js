@@ -3,7 +3,7 @@
  * @param {*} url 请求路径，默认为空
 */
 import ajax from './ajax'
-const BASE_URL = 'http://cangdu.org:8001'
+const BASE_URL = 'http://cangdu.org:8001' // 这里BASE_URL为''也行
 /**
  * 获取 home 页面食品分类列表
  */
@@ -98,16 +98,16 @@ export const exChangeHongbao = (id, exchangeCode, captchaCode) => ajax('/v1/user
  * 获取当前所在城市
  */
 
-export const currentcity = number => ajax('/v1/cities/' + number)
+// export const currentcity = number => ajax('/v1/cities/' + number)
 
 /**
  * 获取搜索地址
  */
-export const searchplace = (cityid, value) => ajax('/v1/pois', {
-  type: 'search',
-  city_id: cityid,
-  keyword: value
-})
+// export const searchplace = (cityid, value) => ajax('/v1/pois', {
+//   type: 'search',
+//   city_id: cityid,
+//   keyword: value
+// })
 
 /**
  * 获取首页默认地址
