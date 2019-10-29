@@ -13,7 +13,7 @@
       </section>
       <section class="login_message">
         <input type="text" placeholder="验证码" maxlength="11" v-model="captcha">
-        <img src="" alt="captcha" class="get_verification" @click="getCode" ref="captcha">
+        <img src="../Login/images/captcha.svg" alt="captcha" class="get_verification" @click="getCode" ref="captcha">
       </section>
       <div class="modify" @click="resetButton">确认修改</div>
     </form>
@@ -131,10 +131,11 @@ export default {
       .get_verification
         position absolute
         top 50%
-        right 10px
+        right 0px
         transform translateY(-50%)
         border 0
         background transparent
+        width: 125px;
         &.right_phone
           color black
 .modify

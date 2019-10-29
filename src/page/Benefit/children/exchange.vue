@@ -6,7 +6,7 @@
       <section class="input_container captcha_code_container">
         <input type="text" placeholder="验证码" maxlength="4" v-model="codeNumber">
         <div class="img_change_img">
-          <img :src="captchaCodeImg">
+          <img :src="captchaCodeImg" src="../../Login/images/captcha.svg"> 
           <div class="change_img" @click="getCaptcha">
           </div>
         </div>

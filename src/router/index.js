@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import home from '../page/Home/Home'
-// 路由组件懒加载,减少首次加载下载包，
+
 
 // vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载
 // 这种方式每个组件会生成一个js文件
@@ -26,6 +26,7 @@ import Router from 'vue-router'
 //   name: 'Order',
 //   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
 // }
+// 路由组件懒加载,减少首次加载下载包，
 const city = () => import('../page/City/City.vue')
 const searchArea = () => import('../page/City/children/searchArea.vue')
 const home = () => import('../page/Home/Home.vue')

@@ -41,7 +41,7 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="http://hjzadmin:82/admin/login/checkVerify" alt="captcha" @click="getCaptcha" ref="captcha">
+                <img class="get_verification" src="./images/captcha.svg" alt="captcha" @click="getCaptcha" ref="captcha">
               </section>
             </section>
           </div>
@@ -88,6 +88,7 @@ export default {
         this.intervalId = setInterval(() => {
           this.computeTime--
           if (this.computeTime <= 0) {
+            this.showAlert('验证码已过期，请点击重新获取')
             clearInterval(this.intervalId)
           }
         }, 1000)
@@ -171,18 +172,27 @@ export default {
     },
     // 获取一个新的图片验证码
     getCaptcha () {
-      // 每次指定的src要不一样
-       this.$refs.captcha.src = 'http://hjzadmin:82/admin/login/checkVerify';
-      // axios.get('http://hjzadmin:82/admin/login/checkVerify?time=' + Date.now()).then(res => {
-      //   this.$refs.captcha = res;
+      // 现在没开通后台服务器，暂时用静态图片代替，下面的方法可使用外部api生成动态图片（测试已成功）
+      // axios({
+      //   method:"post",
+      //   url:"http://route.showapi.com/26-4", 
+      //   params: {
+      //     // 这里使用https://www.showapi.com/的api，免费注册后可使用
+
+      //     "showapi_appid": '', //这里需要改成自己的appid
+      //     "showapi_sign": '',  //这里需要改成自己的应用的密钥secret
+      //   }}).then(res => {
+      //   this.$refs.captcha.src = res.data.showapi_res_body.img_path;
       // })
-      // 'http://localhost:4000/captcha?time=' + Date.now()
     }
   },
   components: {
     AlertTip,
     HeaderTop
   }
+  // created() {
+  //   this.getCaptcha()
+  // }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>

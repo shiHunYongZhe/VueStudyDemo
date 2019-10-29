@@ -8,12 +8,15 @@ import store from './store'
 import fastclick from 'fastclick'
 import vueLazyload from 'vue-lazyload'
 import {Button} from 'mint-ui'
+
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer'
+
 // 在移动端（微信等）使用 vConsole调试console
 // import Vconsole from 'vconsole'
 // let vConsole = new Vconsole()
 // export default vConsole
+
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoader', function () {
     fastclick.attach(document.body)
@@ -36,18 +39,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-// 在布置到生产环境的时候再替换
-// 骨架屏css加载后再挂载Vue实例，优化骨架屏渲染速度
-// let app = new Vue({
-//   router,
-//   store,
-//   components: { App },
-//   template: '<App/>'
-// })
-// window.mountApp = () => {
-//   app.$mount('#app')
-// }
-
-// if (window.STYLE_READY) {
-//   window.mountApp()
-// }
