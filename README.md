@@ -25,7 +25,7 @@
 - vue-lazyload(实现图片懒加载，节省用户流量，优化页面加载速度)
 - fastclick(解决移动端 300ms 延迟，提高页面交互流畅度)
 - 后续使用了cdn在线获取vue相关类库，并且文件打包后启用了服务端gzip压缩（打包后使用node server.js测试）
-- webpack(config/index.js 文件内的 productionSourceMap 改为 false,这样打包出来的文件可以没有.map 结尾的 js 文件，且文件体积减少至少一半)
+- webpack优化
 
 ## 2. 你能从此项目中学到什么? 
 
