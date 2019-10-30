@@ -6,10 +6,7 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 /dist/
-# Editor directories and files
-# 忽略使用WebStorm开发时，生成的缓存文件夹
 .idea
-# 忽略使用VSCode开发时，生成的缓存文件夹
 .vscode
 *.suo
 *.ntvs*
