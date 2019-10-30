@@ -82,3 +82,4 @@ export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {
   keyword,
   type: 'search'
 })
+
