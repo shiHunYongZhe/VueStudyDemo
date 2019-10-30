@@ -1,6 +1,6 @@
 # happily
 
-> A Vue.js project
+> A Vue.js project(Vue外卖App)
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
