@@ -1,6 +1,9 @@
 # happily
 
 > A Vue.js project(Vue外卖App)
+万维易源https://www.showapi.com/
+"showapi_appid": '107034', //这里需要改成自己的appid
+"showapi_sign": 'eff62cd51baa4473974a73dfba7add3f',  //这里需要改成自己的应用的密钥secret
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
