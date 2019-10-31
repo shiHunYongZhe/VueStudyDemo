@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// 采用这种方式最终将同步一次性引入全部组件
 // import home from '../page/Home/Home'
 
-
-// vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载
-// 这种方式每个组件会生成一个js文件
+// vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载，路由组件懒加载,减少首次加载下载包，
+// 1.这种方式每个组件会生成一个js文件
 // const home = () => import('../page/Home/Home.vue')
-// 下面2行代码，指定了相同的webpackChunkName，会合并打包成一个js文件。 把组件按组分块
+
+// 2.下面2行代码，指定了相同的webpackChunkName，会合并打包成一个js文件。 把组件按组分块
 // const Home =  () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Home/Home.vue')
 // const Index = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Search/Search.vue')
 
-// webpack提供的require.ensure()
+// 3.webpack提供的require.ensure()
 // vue-router配置路由，使用webpack的require.ensure技术，也可以实现按需加载。
 // 这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。以下示例就生成两个js文件，分别是demo.js和demo-01.js
 // {
@@ -26,7 +27,6 @@ import Router from 'vue-router'
 //   name: 'Order',
 //   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
 // }
-// 路由组件懒加载,减少首次加载下载包，
 const city = () => import('../page/City/City.vue')
 const searchArea = () => import('../page/City/children/searchArea.vue')
 const home = () => import('../page/Home/Home.vue')
@@ -78,6 +78,8 @@ Vue.use(Router)
 //     },
 // ];
 
+// import profile from './profile';
+
 // const router = new Router({
 //   routes: [].concat(
 //       home,
@@ -86,6 +88,8 @@ Vue.use(Router)
 //       order
 //   )
 // });
+
+
 
 // 监听路由进入和离开
 // router.beforeEach((to, from, next) => {
@@ -102,6 +106,7 @@ Vue.use(Router)
 export default new Router({
   //  去掉地址中的哈希#，改成历史模式
   mode: 'history',
+  // 记录切换页面时当前的位置，
   // scrollBehavior (to, from, savedPosition) {
   //   if (savedPosition) {
   //     return savedPosition
