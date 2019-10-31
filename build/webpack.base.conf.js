@@ -3,6 +3,13 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+
+// 使用happyPack对webpack进行多线程打包，提高打包编译速度（主要是生产环境需要，启动需npm安装happypack）
+// const HappyPack = require('happypack')
+// const os = require('os')
+// const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -33,6 +40,23 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+
+  // 增加HappyPack插件
+  // plugins: [
+  //   new HappyPack({
+  //     id: 'happy-babel',                           与下面module的loader中的id相对应
+  //     loaders: ['babel-loader'],                   原先的loader
+  //     threadPool: happyThreadPool,                 使用共享进程池中的子进程去处理任务
+  //   }),
+  //   new HappyPack({
+  //     id: 'vue-pack',
+  //     loaders: ['vue-loader'],
+  //     threadPool: happyThreadPool
+  //   }),
+  //   ...       对file-loader、url-loader 支持不友好,不建议对其优化
+  // ],
+
+
   resolve: {
   // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
   // 使用scss的时候，还可以加上 .css 和 .scss
@@ -53,11 +77,13 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        // 增加新的HappyPack构建loader       使用这个替代之   loader: 'happypack/loader?id=vue-pack', 
         options: vueLoaderConfig
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        // 增加新的HappyPack构建loader       使用这个替代之   loader: 'happypack/loader?id=happy-babel', 
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       //引入的markdown文件需要解析器
