@@ -3,7 +3,6 @@
  * @param {*} url 请求路径，默认为空
 */
 import ajax from './ajax'
-const BASE_URL = '' // 这里BASE_URL为''也行
 
 
 // (下列请求由mock拦截并返回 不需要代理)
@@ -29,19 +28,19 @@ export const reqShops = () => ajax('/shops')
 
 
 //根据经纬度和关键字搜索商铺列表
-export const reqSearchShop = (geohash, keyword) => ajax(BASE_URL + '/search_shops', {geohash, keyword})
+export const reqSearchShop = (geohash, keyword) => ajax('/search_shops', {geohash, keyword})
 //获取短信验证码
-export const reqSendCode = phone => ajax(BASE_URL + '/sendcode', {phone})
+export const reqSendCode = phone => ajax('/sendcode', {phone})
 //账号密码登录
-export const reqPwdLogin = ({name, pwd, captcha}) => ajax(BASE_URL + '/login_pwd', {name, pwd, captcha}, 'POST')
+export const reqPwdLogin = ({name, pwd, captcha}) => ajax('/login_pwd', {name, pwd, captcha}, 'POST')
 //手机号验证码登录
-export const reqSmsLogin = (phone, code) => ajax(BASE_URL + '/login_sms', {phone, code}, 'POST')
+export const reqSmsLogin = (phone, code) => ajax('/login_sms', {phone, code}, 'POST')
 //改密码
-export const changePassword = (username, oldpassWord, newpassword, confirmpassword, captchaCode) => ajax('BASE_URL', {username, oldpassWord, newpassword, confirmpassword, captchaCode}, 'POST')
+export const changePassword = (username, oldpassWord, newpassword, confirmpassword, captchaCode) => ajax('', {username, oldpassWord, newpassword, confirmpassword, captchaCode}, 'POST')
 //获取用户信息(根据会话)
-export const reqUserInfo = () => ajax(BASE_URL + '/userinfo')
+export const reqUserInfo = () => ajax('/userinfo')
 //请求登出
-export const reqLogout = () => ajax(BASE_URL + '/logout')
+export const reqLogout = () => ajax('/logout')
 //获取订单列表
 export const getOrderList = (userId, offset) => ajax('/bos/v2/users/' + userId + '/orders', {
   limit: 10,
@@ -54,7 +53,7 @@ export const vipCart = (id, number, password) => ajax('/member/v1/users/' + id +
 }, 'POST')
 
 //获取地址信息(根据经纬度串)这个接口的经纬度参数是在url路径里的，没有query参数
-export const reqAddress = geohash => ajax(`${BASE_URL}/position/${geohash}`)
+export const reqAddress = geohash => ajax(`/position/${geohash}`)
 //获取红包
 export const getHongbaoNum = id => ajax('/v2/users/' + id + '/hongbaos?limit=20&offset=0')
 //获取过期红包

@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "dll": "webpack --config ./build/webpack.dll.config.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -65,7 +66,7 @@
     "webpack-cli": "^3.3.9",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^3.1.11",
+    "webpack-dev-server": "^2.9.0",
     "webpack-merge": "^4.1.0"
   },
   "engines": {

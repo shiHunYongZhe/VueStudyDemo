@@ -240,4 +240,32 @@ npm/yarn run dev
 # build for production with minification / 构建生产
 npm/yarn run build
 
+
+
+# 以下打算添加的新功能（未经测试）
+## 持续集成服务 Travis CI
+
+利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
+本地添加.travis.yml
+
+    language: node_js
+    node_js:
+    - 8
+    branchs:
+      only:
+      - master
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_87bf11d507f0_key -iv $encrypted_87bf11d507f0_iv
+      -in id_rsa.enc -out ~/.ssh/id_rsa -d
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host 47.98.240.154\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+    script:
+    - npm install cnpm --registry=https://registry.npm.taobao.org
+    - cnpm install
+    - npm run build
+    - scp -r dist root@47.98.240.154:/var/www/html/fancy
+    -
+
+
+
 ```
