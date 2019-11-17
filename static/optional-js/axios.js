@@ -1,6 +1,6 @@
 // axios请求拦截，需要时可在src/api/ajax 将 import axios from 'axios' 改为 import http as axios from '../../static/js/axios'
 import axios from 'axios'
-// import { Toast } from "vant";
+// import { Toast } from 'mint-ui';
 const http = axios.create({
     baseURL: process.env.NODE_ENV == "development" ? "" : "http://cangdu.org:8001",
     timeout: 20000 // request timeout

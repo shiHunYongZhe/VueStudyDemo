@@ -19,7 +19,6 @@
     "moment": "^2.24.0",
     "showdown": "^1.9.0",
     "swiper": "^4.5.0",
-    "vconsole": "^3.3.4",
     "vue": "^2.5.17",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1",

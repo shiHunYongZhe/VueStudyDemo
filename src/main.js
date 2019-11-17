@@ -8,9 +8,9 @@ import Vue from 'vue'
 import fastclick from 'fastclick'
 import vueLazyload from 'vue-lazyload'
 import {Button} from 'mint-ui'
+import 'mint-ui/lib/style.css'
 // import Raven from "raven-js";
 // import RavenVue from "raven-js/plugins/vue";
-// import Datamixin from './mixins/dataMixin'
 
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer'

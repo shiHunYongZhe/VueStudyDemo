@@ -2,11 +2,12 @@
   <div>
     <section class="order">
       <header-top title="订单列表" :isBack="false"></header-top>
-      <section class="order_no_login">
+      <!-- <section class="order_no_login">
         <img src="./images/person.png">
         <h3>登录后查看外卖订单</h3>
         <button @click.prevent="this.router.replace('/login')">立即登陆</button>
-      </section>
+      </section> -->
+      <nopage ref="nopage" title="用户"></nopage>
     </section>
     <transition name="loading">
       <Loading v-show="showLoading" />
@@ -17,12 +18,14 @@
 <script>
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import Loading from '../../components/Loading/Loading'
+import { dataMixin } from "../../mixins/dataMixin.js";
 export default {
   data () {
     return {
       showLoading: true
     }
   },
+  mixins: [dataMixin],
   components: {
     HeaderTop,
     Loading

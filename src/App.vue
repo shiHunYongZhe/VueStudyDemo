@@ -12,7 +12,7 @@ export default {
   name: 'App',
   components: {
     FooterGuide
-  },
+  }
   // 在每次刷新前保留vuex的数据
   // created() {
   //   localStorage.getItem("userMsg") &&
