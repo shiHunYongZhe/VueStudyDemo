@@ -1,11 +1,11 @@
 export const dataMixin = {
     data() {
         return {
-            title: ""
+            title: ''
         };
     },
     components: {
-        Nopage: () => import("../components/NoPage")
+        Nopage: () => import('../components/NoPage')
     },
     computed: {},
     methods: {

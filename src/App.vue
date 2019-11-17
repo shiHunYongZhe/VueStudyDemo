@@ -1,52 +1,61 @@
 <template>
-  <div id="app">
-    <router-view/>
-    <!-- 并放置非路由组件 -->
-    <FooterGuide v-show="$route.meta.showFooter"></FooterGuide>
-  </div>
+    <div id="app">
+        <router-view />
+        <!-- 并放置非路由组件 -->
+        <FooterGuide v-show="$route.meta.showFooter"></FooterGuide>
+    </div>
 </template>
 
 <script>
-import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+import FooterGuide from './components/FooterGuide/FooterGuide.vue';
 export default {
-  name: 'App',
-  components: {
-    FooterGuide
-  }
-  // 在每次刷新前保留vuex的数据
-  // created() {
-  //   localStorage.getItem("userMsg") &&
-  //     this.$store.replaceState(
-  //       Object.assign(
-  //         this.$store.state,
-  //         JSON.parse(localStorage.getItem("userMsg"))
-  //       )
-  //     );
-  //   window.addEventListener("beforeunload", () => {
-  //     localStorage.setItem("userMsg", JSON.stringify(this.$store.state));
-  //   });
-  // }
-}
+    name: 'App',
+    components: {
+        FooterGuide
+    }
+    // 在每次刷新前保留vuex的数据
+    // created() {
+    //   localStorage.getItem("userMsg") &&
+    //     this.$store.replaceState(
+    //       Object.assign(
+    //         this.$store.state,
+    //         JSON.parse(localStorage.getItem("userMsg"))
+    //       )
+    //     );
+    //   window.addEventListener("beforeunload", () => {
+    //     localStorage.setItem("userMsg", JSON.stringify(this.$store.state));
+    //   });
+    // }
+};
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-.markdown
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.markdown {
   font-size: 14px;
-  padding: 0 .14px;
+  padding: 0 0.14px;
   color: #666;
   padding-bottom: 90px;
-  text-align left
-  h3
-    line-height 34px
-  p,li
-    text-indent 2em
-    line-height 18px
-  img
-    width 100%
-    height 100%
+  text-align: left;
+
+  h3 {
+    line-height: 34px;
+  }
+
+  p, li {
+    text-indent: 2em;
+    line-height: 18px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>

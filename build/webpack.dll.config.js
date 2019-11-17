@@ -1,6 +1,6 @@
 // 生产环境，启用第三方文件单独打包，静态缓存
-const path = require("path")
-const webpack = require("webpack")
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     // 你想要打包的模块的数组
@@ -25,8 +25,7 @@ module.exports = {
             }
         })
     ]
-}
-
+};
 
 // 在**build/webpack.dev.config.js**和**build/webpack.prod.config.js**中添加 plugins
 
@@ -34,7 +33,6 @@ module.exports = {
 //     	      context: __dirname,
 //     	      manifest: require('./vendor-manifest.json')
 //     	}),
-
 
 // 在**根目录下的 index.html**下引入预编译的库
 

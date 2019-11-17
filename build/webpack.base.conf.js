@@ -1,119 +1,115 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+'use strict';
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+
+function resolve(dir) {
+    return path.join(__dirname, '..', dir);
 }
 
 // 要是嫌代码检查太麻烦，可以注释掉eslint工具（1）
 const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
+    test: /\.(js|vue)$/,
+    loader: 'eslint-loader',
+    enforce: 'pre',
+    include: [resolve('src'), resolve('test')],
+    options: {
+        formatter: require('eslint-friendly-formatter'),
+        emitWarning: !config.dev.showEslintErrorsInOverlay
+    }
+});
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
-  output: {
-    // 选择这个目录为输出目录，此处为项目下的子目录dist文件夹（自动生成）
-    path: config.build.assetsRoot,
-    // 这里的name代表entry入口的key，这里生成的文件名为app.js
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
-  },
+    context: path.resolve(__dirname, '../'),
+    entry: {
+        app: './src/main.js'
+    },
+    output: {
+        // 选择这个目录为输出目录，此处为项目下的子目录dist文件夹（自动生成）
+        path: config.build.assetsRoot,
+        // 这里的name代表entry入口的key，这里生成的文件名为app.js
+        filename: '[name].js',
+        publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
+    },
 
-  resolve: {
-  // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
-  // 使用scss的时候，还可以加上 .css 和 .scss
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      // 引入路径别名
-      'vue$': 'vue/dist/vue.esm.js',
-      'src': path.resolve(__dirname, '../src'),
-      'common': path.resolve(__dirname, '../src/common'),
-      'components': path.resolve(__dirname, '../src/components')
+    resolve: {
+        // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
+        // 使用scss的时候，还可以加上 .css 和 .scss
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            // 引入路径别名
+            vue$: 'vue/dist/vue.esm.js',
+            src: path.resolve(__dirname, '../src'),
+            common: path.resolve(__dirname, '../src/common'),
+            components: path.resolve(__dirname, '../src/components')
+        }
+    },
+    // 加载器，关于各个加载器的参数配置。
+    module: {
+        rules: [
+            // 要是嫌代码检查太麻烦，可以注释掉eslint工具（2）
+            ...(config.dev.useEslint ? [createLintingRule()] : []),
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+            },
+            // 引入的markdown文件需要解析器
+            {
+                test: /.md$/,
+                loader: 'text-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            // 当图片文件大于10kb的时候，自动生成下面名称的图片（小于10kb的自动变成base64嵌入到页面中）
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            }
+        ]
+    },
+    node: {
+        // prevent webpack from injecting useless setImmediate polyfill because Vue
+        // source contains it (although only uses it if it's native).
+        setImmediate: false,
+        // prevent webpack from injecting mocks to Node native modules
+        // that does not make sense for the client
+        dgram: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty'
+    },
+    // 在使用CDN引入外部文件的情况下，依然可以在项目中使用import语法，键名是import的npm包名，键值是该库暴露的全局变量
+    externals: {
+        vue: 'Vue',
+        'vue-router': 'VueRouter',
+        vuex: 'Vuex',
+        axios: 'axios'
     }
-  },
-  // 加载器，关于各个加载器的参数配置。
-  module: {
-    rules: [
-      // 要是嫌代码检查太麻烦，可以注释掉eslint工具（2）
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        // 增加新的HappyPack构建loader       使用这个替代之   loader: 'happypack/loader?id=vue-pack', 
-        options: vueLoaderConfig
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        // 增加新的HappyPack构建loader       使用这个替代之   loader: 'happypack/loader?id=happy-babel', 
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
-      },
-      //引入的markdown文件需要解析器
-      {
-        test: /.md$/,
-        loader: 'text-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      // 当图片文件大于10kb的时候，自动生成下面名称的图片（小于10kb的自动变成base64嵌入到页面中）
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
-      }
-    ]
-    
-  },
-  node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-    setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty'
-  },
-  // 在使用CDN引入外部文件的情况下，依然可以在项目中使用import语法，键名是import的npm包名，键值是该库暴露的全局变量
-  // https://webpack.js.org/configuration/externals/#src/components/Sidebar/Sidebar.jsx
-  externals: {
-    'vue': 'Vue',
-    'vue-router': 'VueRouter',
-    'vuex':'Vuex'
-  }
-}
+};
