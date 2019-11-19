@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// 采用这种方式最终将同步一次性引入全部组件
+// 采用这种方式最终将同步一次性引入组件
 // import home from '../page/Home/Home'
 
 // vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载，路由组件懒加载,减少首次加载下载包，
 // 1.这种方式每个组件会生成一个js文件
 // const home = () => import('../page/Home/Home.vue')
 
-// 2.下面2行代码，指定了相同的webpackChunkName，会合并打包成一个js文件。 把组件按组分块
-// const Home =  () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Home/Home.vue')
-// const Index = () => import(/* webpackChunkName: 'ImportFuncDemo' */ '../page/Search/Search.vue')
-
-// 3.webpack提供的require.ensure()
+// 2.webpack提供的require.ensure()
 // vue-router配置路由，使用webpack的require.ensure技术，也可以实现按需加载。
 // 这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。以下示例就生成两个js文件，分别是demo.js和demo-01.js
 // {
@@ -61,7 +57,7 @@ Vue.use(Router)
 
 // 当一个页面路由太多时，可改用以下写法
 // import home from './home';
-// home.js的内容
+// router/home.js的内容
 // export default [
 //     {
 //         path: '/',
@@ -71,21 +67,17 @@ Vue.use(Router)
 //         path: '/home',
 //         name: 'home',
 //         meta: { showFooter: true }
-//     },
-//     {
-//         name: '/forget',
-//         path: '/forget'
-//     },
+//     }
 // ];
 
+// router/home.js的内容
 // import profile from './profile';
+// import ... from './...';
 
 // const router = new Router({
 //   routes: [].concat(
 //       home,
-//       profile,
-//       search,
-//       order
+//        ...
 //   )
 // });
 
@@ -93,12 +85,20 @@ Vue.use(Router)
 
 // 监听路由进入和离开
 // router.beforeEach((to, from, next) => {
-//   next();
+//   if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
+  //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件   
+  //     next({
+  //       path: '/login',                                               // 验证失败要跳转的页面
+  //     })
+  //   } else {
+  //     next()
+  //   }
+  // } else {
+  //   next()                                                       // 确保一定要调用 next()
+  // }
 // });
 // router.afterEach(route => {
-//   if (route.name !== 'login') {
-
-//   }
+  
 // });
 
 // export default router
@@ -138,7 +138,9 @@ export default new Router({
       component: home,
       // 路由标识信息：标识此路由是否显示FooterGuide
       meta: {
-        showFooter: true
+        showFooter: true,
+        // 要求验证的页面,在此情况下其子页面也会被验证.
+        // requiresAuth: true      
       }
     },
     {
