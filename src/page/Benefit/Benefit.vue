@@ -118,7 +118,7 @@ export default {
     ]),
     async initData () {
       if (this.userInfo) {
-        this.hongbaoList = await getHongbaoNum(this.userInfo.user_id)
+        // this.hongbaoList = await getHongbaoNum(this.userInfo.user_id)
         // this.showLoading = false
       }
     }

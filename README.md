@@ -4,7 +4,7 @@
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
-2. 使用了 Vue 全家桶+ES6+Webpack 等前端最新技术 
+2. 使用了 Vue 全家桶+ES6+Webpack 等前端最新技术
     * `Vue`：用于构建用户界面的 MVVM 框架
     * `vue-router`：为单页面应用提供的路由系统
     * `vuex`：Vue 集中状态管理，在多个组件共享某些状态时非常便捷
@@ -13,8 +13,8 @@
     * `stylus`：css 预编译处理器
     * `ES6`：ECMAScript 新一代语法，模块化、解构赋值、Promise、Class 等方法非常好用
     ...
-3. 包括商家, 商品, 购物车, 用户等多个功能子模块 
-4. 采用模块化、组件化、工程化的模式开发 
+3. 包括商家, 商品, 购物车, 用户等多个功能子模块
+4. 采用模块化、组件化、工程化的模式开发
 5. 测试数据接口: 使用postman
 
 ## 优化方案:
@@ -27,13 +27,13 @@
 - 后续使用了cdn在线获取vue相关类库，并且文件打包后启用了服务端gzip压缩（打包后使用node server.js测试）
 - webpack优化
 
-## 2. 你能从此项目中学到什么? 
+## 2. 你能从此项目中学到什么?
 
 1. 熟悉一个项目的开发流程
-2. 学会组件化、模块化、工程化的开发模式 
+2. 学会组件化、模块化、工程化的开发模式
 3. 掌握使用 vue-cli 脚手架初始化 Vue.js 项目，vue全家桶开发应用
-4. 学会使用mock.js模拟 json 后端数据以及接口，实现前后端分离开发 
-5. 学会 ES6+eslint 的开发方式 
+4. 学会使用mock.js模拟 json 后端数据以及接口，实现前后端分离开发
+5. 学会 ES6+eslint 的开发方式
 6. 掌握一些项目优化技巧，如vue-lazyload 实现图片惰加载
 
 ## 3. 搭建项目整体界面结构
@@ -48,7 +48,7 @@
         导航路由组件: Msite/Search/Order/Profile
         头部组件: HeaderTop, 通过slot来实现组件通信标签结构
         商家列表组件: ShopList
-    promise+axios封装ajax: 
+    promise+axios封装ajax:
         封装每个接口对应的请求函数(能根据接口定义ajax请求函数)
         解决ajax的跨越域问题: 配置代理, 对代理的理解
     vuex编码
@@ -68,7 +68,7 @@
             对数据进行整合计算(一维变为特定的二维数组)
             使用Swiper显示轮播, 如何在界面更新之后创建Swiper对象?
                 1). 使用回调+$nextTick()
-                2). 使用watch+$nextTick()	
+                2). 使用watch+$nextTick()
 
 ## Build Setup
 # 项目布局
@@ -85,7 +85,7 @@
 │   │   ├── utils                               // 工具函数
 │   │   ├── index                               // 获取数据的统一调配文件，对接口进行统一管理
 │   ├── common                                  // 公共文件
-│   │   ├── imgs                                // 图片文件夹 
+│   │   ├── imgs                                // 图片文件夹
 │   │   └── stylus                              // 公共stylus组件
 │   ├── components                              // 公共组件
 │   │   ├── AlterTip                            // 弹出框组件
@@ -230,24 +230,33 @@
 .
 ```
 
-``` 
-# install dependencies / 安装依赖
-npm install | yarn 
+### install dependencies / 安装依赖
+npm install | yarn
 
-# serve with hot reload at localhost:8080 / 本地开发环境 热加载访问http://localhost:8080
+### serve with hot reload at localhost:8080 / 本地开发环境 热加载访问http://localhost:8080
 npm/yarn run dev
 
-# build for production with minification / 构建生产
+### build for production with minification / 构建生产
 npm/yarn run build
 
+# 用手机浏览效果
+1. 确保手机和电脑连接的是同一个局域网/wifi
+1. 电脑cmd下输入ipconfig查看当前网络IPv4，比如我的是192.168.1.101
+1. 修改config/index.js 的host，改成本机的ipv4，保存修改
+1. 运行npm run dev,在浏览器上输入ipv4:8080，比如我的是http://192.168.1.101:8080，确保可正常预览
+1. 使用草料二维码输入当前网址生成二维码，手机扫描即可查看项目
 
+# 打算优化的小问题（持续修复）
 
-# 以下打算添加的新功能（未经测试）
-## 持续集成服务 Travis CI
+## 引入moment.js文件太大的问题
 
-利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
+## 生成移动端app
+
+## 持续集成服务 Travis CI，（先搁置）
+
+- 利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
 本地添加.travis.yml
-
+```
     language: node_js
     node_js:
     - 8
@@ -265,7 +274,4 @@ npm/yarn run build
     - npm run build
     - scp -r dist root@47.98.240.154:/var/www/html/fancy
     -
-
-
-
 ```

@@ -21,14 +21,14 @@ module.exports = {
       //     '^/api': ''
       //   }
       // }
-        '/v1': {
-         target: 'http://cangdu.org:8001',
-         changeOrigin: true
-       },
-       '/v4': {
-        target: 'http://cangdu.org:8001',
-        changeOrigin: true
-      }
+      //   '/v1': {
+      //    target: 'http://cangdu.org:8001',
+      //    changeOrigin: true
+      //  },
+      //  '/v4': {
+      //   target: 'http://cangdu.org:8001',
+      //   changeOrigin: true
+      // }
     },
 
     // Various Dev Server settings
@@ -39,7 +39,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
@@ -62,7 +62,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    // 正式打包上线记得改为'./'
+    assetsPublicPath: '/',
 
     /**
      * Source Maps

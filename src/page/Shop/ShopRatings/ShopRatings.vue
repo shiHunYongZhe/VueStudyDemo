@@ -99,6 +99,7 @@ export default {
     // 自定义时间格式转化过滤器
     dateFormat (value) {
       return moment(value).add(33, 'months').locale('zh-cn').fromNow()
+      // return format(addMonths(parse(value), 33))
     }
   },
   // 在computed里获取info和ratings的State数据以及返回好评数量的Getters

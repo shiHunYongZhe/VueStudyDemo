@@ -23,36 +23,37 @@ import Router from 'vue-router'
 //   name: 'Order',
 //   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
 // }
-const city = () => import('../page/City/City.vue')
-const searchArea = () => import('../page/City/children/searchArea.vue')
 const home = () => import('../page/Home/Home.vue')
 const search = () => import('../page/Search/Search.vue')
 const order = () => import('../page/Order/Order.vue')
 const profile = () => import('../page/Profile/Profile.vue')
-const login = () => import('../page/Login/Login.vue')
-const forget = () => import('../page/Forget/Forget.vue')
-const balance = () => import('../page/Balance/Balance.vue')
-const balanceDetail = () => import('../page/Balance/children/detail.vue')
-const benefit = () => import('../page/Benefit/Benefit.vue')
-const benefitHBDescription = () => import('../page/Benefit/children/hbDescription.vue')
-const benefitCoupon = () => import('../page/Benefit/children/coupon.vue')
-const benefitHBHistory = () => import('../page/Benefit/children/hbHistory.vue')
-const benefitExchange = () => import('../page/Benefit/children/exchange.vue')
-const benefitCommend = () => import('../page/Benefit/children/commend.vue')
-const points = () => import('../page/Points/Points.vue')
-const pointsDetail = () => import('../page/Points/children/detail.vue')
-const onlineShop = () => import('../page/OnlineShop/OnlineShop.vue')
-const vipCard = () => import('../page/VipCard/VipCard.vue')
-const vipInvoiceRecord = () => import('../page/VipCard/children/invoiceRecord.vue')
-const vipUseCart = () => import('../page/VipCard/children/useCart.vue')
-const vipDescription = () => import('../page/VipCard/children/vipDescription.vue')
-const service = () => import('../page/Service/Service.vue')
-const serviceDetail = () => import('../page/Service/children/questionDetail.vue')
 const download = () => import('../page/Download/Download.vue')
-const shop = () => import('../page/Shop/Shop.vue')
-const shopGoods = () => import('../page/Shop/ShopGoods/ShopGoods.vue')
-const shopInfo = () => import('../page/Shop/ShopInfo/ShopInfo.vue')
-const shopRatings = () => import('../page/Shop/ShopRatings/ShopRatings.vue')
+// 合并打包一些小文件
+const city = r => require.ensure([], () => r(require('../page/City/City.vue')), 'city')
+const searchArea = r => require.ensure([], () => r(require('../page/City/children/searchArea.vue')), 'city')
+const login = r => require.ensure([], () => r(require('../page/Login/Login.vue')), 'login')
+const forget = r => require.ensure([], () => r(require('../page/Forget/Forget.vue')), 'login')
+const balance = r => require.ensure([], () => r(require('../page/Balance/Balance.vue')), 'balance')
+const balanceDetail = r => require.ensure([], () => r(require('../page/Balance/children/detail.vue')), 'balance')
+const benefit = r => require.ensure([], () => r(require('../page/Benefit/Benefit.vue')), 'benefit')
+const benefitHBDescription = r => require.ensure([], () => r(require('../page/Benefit/children/hbDescription.vue')), 'benefit')
+const benefitCoupon = r => require.ensure([], () => r(require('../page/Benefit/children/coupon.vue')), 'benefit')
+const benefitHBHistory = r => require.ensure([], () => r(require('../page/Benefit/children/hbHistory.vue')), 'benefit')
+const benefitExchange = r => require.ensure([], () => r(require('../page/Benefit/children/exchange.vue')), 'benefit')
+const benefitCommend = r => require.ensure([], () => r(require('../page/Benefit/children/commend.vue')), 'benefit')
+const points = r => require.ensure([], () => r(require('../page/Points/Points.vue')), 'point')
+const pointsDetail = r => require.ensure([], () => r(require('../page/Points/children/detail.vue')), 'point')
+const onlineShop = () => import('../page/OnlineShop/OnlineShop.vue')
+const vipCard = r => require.ensure([], () => r(require('../page/VipCard/VipCard.vue')), 'vipCard')
+const vipInvoiceRecord = r => require.ensure([], () => r(require('../page/VipCard/children/invoiceRecord.vue')), 'vipCard')
+const vipUseCart = r => require.ensure([], () => r(require('../page/VipCard/children/useCart.vue')), 'vipCard')
+const vipDescription = r => require.ensure([], () => r(require('../page/VipCard/children/vipDescription.vue')), 'vipCard')
+const service = r => require.ensure([], () => r(require('../page/Service/Service.vue')), 'service')
+const serviceDetail = r => require.ensure([], () => r(require('../page/Service/children/questionDetail.vue')), 'service')
+const shop = r => require.ensure([], () => r(require('../page/Shop/Shop.vue')), 'shop')
+const shopGoods = r => require.ensure([], () => r(require('../page/Shop/ShopGoods/ShopGoods.vue')), 'shop')
+const shopInfo = r => require.ensure([], () => r(require('../page/Shop/ShopInfo/ShopInfo.vue')), 'shop')
+const shopRatings = r => require.ensure([], () => r(require('../page/Shop/ShopRatings/ShopRatings.vue')), 'shop1')
 Vue.use(Router)
 
 // 当一个页面路由太多时，可改用以下写法
@@ -86,7 +87,7 @@ Vue.use(Router)
 // 监听路由进入和离开
 // router.beforeEach((to, from, next) => {
 //   if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
-  //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件   
+  //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件
   //     next({
   //       path: '/login',                                               // 验证失败要跳转的页面
   //     })
@@ -98,7 +99,7 @@ Vue.use(Router)
   // }
 // });
 // router.afterEach(route => {
-  
+
 // });
 
 // export default router
@@ -140,7 +141,7 @@ export default new Router({
       meta: {
         showFooter: true,
         // 要求验证的页面,在此情况下其子页面也会被验证.
-        // requiresAuth: true      
+        // requiresAuth: true
       }
     },
     {
