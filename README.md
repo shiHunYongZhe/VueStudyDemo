@@ -84,7 +84,7 @@
 │   │   ├── index                               // 获取数据的统一调配文件，对接
 │   │   ├── utils                               // 工具函数
 │   │   ├── index                               // 获取数据的统一调配文件，对接口进行统一管理
-│   ├── common                                  // 公共文件
+│   ├── common                                  // 公共文件(需要webpack处理的)
 │   │   ├── imgs                                // 图片文件夹
 │   │   └── stylus                              // 公共stylus组件
 │   ├── components                              // 公共组件
@@ -209,7 +209,7 @@
 │       ├── common.scss                         // 公共样式文件
 │   ├── App.vue                                 // 页面入口文件
 │   ├── main.js                                 // 程序入口文件，加载各种公共组件
-├── static                                      // 静态资源配置
+├── static                                      // 静态资源配置，放置高度静态但不经由 Webpack 处理的文件 比如jQuery.min.js，bootstrap.min.js 等
 │   ├── css
 │       ├── common.scss                         // 公共样式文件
 │   ├── .gitkeep                                // 虽然是空文件，但能保证static文件夹为空时git也照常提交该文件夹
