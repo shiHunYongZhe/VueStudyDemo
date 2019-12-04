@@ -1,6 +1,6 @@
 # happily
 
-> A Vue.js project(Vue外卖App)
+> A Vue.js project(Vue外卖App)，线上地址http://hjzdesign.xyz
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
@@ -252,7 +252,7 @@ npm/yarn run build
 
 ## 生成移动端app
 
-## 持续集成服务 Travis CI，（先搁置）
+## 持续集成服务 Travis CI，（参考https://github.com/shiHunYongZhe/travis-ci-demo）
 
 - 利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
 本地添加.travis.yml
