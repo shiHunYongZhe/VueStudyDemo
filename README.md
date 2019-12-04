@@ -1,10 +1,6 @@
 # happily
 
-<<<<<<< HEAD
 > A Vue.js project(Vue外卖App)，线上地址http://hjzdesign.xyz
-=======
-> A Vue.js project(Vue外卖App) 线上地址http://hjzdesign.xyz
->>>>>>> aaae2610574b5d921fdb94cf36ee67cd64889f1a
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
@@ -20,7 +16,6 @@
 3. 包括商家, 商品, 购物车, 用户等多个功能子模块
 4. 采用模块化、组件化、工程化的模式开发
 5. 测试数据接口: 使用postman
-
 ## 优化方案:
 
 - 压缩图片，减少图片的体积: ![](https://tinypng.com/)
@@ -243,6 +238,8 @@ npm/yarn run dev
 ### build for production with minification / 构建生产
 npm/yarn run build
 
+### 每当本地修改后，想提交到远程仓库，只需点击auto-commit.git文件即可
+
 # 用手机浏览效果
 1. 确保手机和电脑连接的是同一个局域网/wifi
 1. 电脑cmd下输入ipconfig查看当前网络IPv4，比如我的是192.168.1.101
@@ -256,7 +253,7 @@ npm/yarn run build
 
 ## 生成移动端app
 
-## 持续集成服务 Travis CI，（参考https://github.com/shiHunYongZhe/travis-ci-demo）
+## 持续集成服务 Travis CI，（先搁置）
 
 - 利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
 本地添加.travis.yml

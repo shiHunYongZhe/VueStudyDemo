@@ -1,9 +1,9 @@
 :: input commit message
 set /p commit_msg=Please input commit message:
 :: show git status
-git pull
+:: git pull
 :: show git status
-git status
+:: git status
 :: add all changing
 git add -A
 :: local commit
