@@ -253,7 +253,7 @@ npm/yarn run build
 
 ## 生成移动端app
 
-## 持续集成服务 Travis CI，（先搁置）
+## 持续集成服务 Travis CI，（可参考https://github.com/shiHunYongZhe/travis-ci-demo）
 
 - 利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
 本地添加.travis.yml
