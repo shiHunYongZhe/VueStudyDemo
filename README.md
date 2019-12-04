@@ -1,6 +1,10 @@
 # happily
 
+<<<<<<< HEAD
 > A Vue.js project(Vue外卖App)，线上地址http://hjzdesign.xyz
+=======
+> A Vue.js project(Vue外卖App) 线上地址http://hjzdesign.xyz
+>>>>>>> aaae2610574b5d921fdb94cf36ee67cd64889f1a
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
