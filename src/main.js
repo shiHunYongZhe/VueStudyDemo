@@ -14,6 +14,8 @@ import 'mint-ui/lib/style.css';
 
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer';
+// 加载mockServer,根据请求响应固定数据
+import './mock/mockServer';
 
 // 在移动端（微信等）使用 vConsole调试console（启动需npm安装vConsole）
 // import Vconsole from 'vconsole'
