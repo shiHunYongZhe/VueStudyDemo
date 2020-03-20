@@ -33,7 +33,7 @@ module.exports = {
         filename: '[name].js',
         publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
     },
-
+// 一些解决方案配置
     resolve: {
         // 设置扩展名，如果配置了这个，特定后缀的文件在import导入的时候，就不用再写后缀名了
         // 使用scss的时候，还可以加上 .css 和 .scss
