@@ -239,7 +239,6 @@ export default {
   .search_none
     margin 0 auto
     color #333
-    background-color #fff
-    text-align #fff
-    margin-top .125rem
+    text-align center
+    padding-top 5rem
 </style>

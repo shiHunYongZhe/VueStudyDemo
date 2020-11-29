@@ -3,7 +3,7 @@
 如不使用Mock却仍想模拟接口，可在build/webpack.dev.conf.js中配置
  */
 import Mock from 'mockjs'
-import data from './data.json'
+import data from './data'
 import shop from './shops'
 import indexCategory from './index_category'
 import cities from './cities'

@@ -106,10 +106,10 @@ module.exports = {
         child_process: 'empty'
     },
     // 在使用CDN引入外部文件的情况下，依然可以在项目中使用import语法，键名是import的npm包名，键值是该库暴露的全局变量
-    externals: {
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
-        vuex: 'Vuex',
-        axios: 'axios'
-    }
+    // externals: {
+    //     vue: 'Vue',
+    //     'vue-router': 'VueRouter',
+    //     vuex: 'Vuex',
+    //     axios: 'axios'
+    // }
 };

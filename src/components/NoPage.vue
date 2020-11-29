@@ -3,7 +3,7 @@
     <img src="../../static/optional-img/github.png" />
     <p @click="onHome">{{ title }}</p>
     <router-link to="./login" class="to_login" v-if="toLogin">
-      <mt-button size="small" type="primary">去登陆</mt-button>
+      <mt-button size="small" style="background:#02a774;color:#fff">去登陆</mt-button>
     </router-link>
   </div>
 </template>

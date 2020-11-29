@@ -42,6 +42,7 @@ Vue.use(vueLazyload, {
 
 // 关闭vue功能的线上实例提示
 const isDebug_mode = process.env.NODE_ENV !== 'production';
+console.log(isDebug_mode)
 Vue.config.debug = isDebug_mode;
 Vue.config.devtools = isDebug_mode;
 Vue.config.productionTip = isDebug_mode;
