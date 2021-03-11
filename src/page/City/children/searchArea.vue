@@ -27,7 +27,6 @@
 
 <script>
 import HeaderTop from '../../../components/HeaderTop/HeaderTop'
-// import {currentcity, searchplace} from '../../../api/index'
 import {getStore, setStore, removeStore} from '../../../api/utils'
 
 export default {
@@ -70,12 +69,8 @@ export default {
     postpois () {
       // 输入值不为空时才发送信息
       if (this.inputVaule) {
-        // searchplace(this.cityid, this.inputVaule).then(res => {
           this.historytitle = false
-          // this.placelist = res
           this.placelist = this.inputVaule
-          // this.placeNone = !res.length
-        // })
       }
     },
     /**

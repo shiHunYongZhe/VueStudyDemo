@@ -13,6 +13,7 @@ import hbDescription from './hbDescription.md'
 export default {
   mounted () {
     this.$nextTick(() => {
+      // 忽略eslint 报错
       // eslint-disable-next-line no-new
       new BScroll('#scroll_section', {
         deceleration: 0.001,

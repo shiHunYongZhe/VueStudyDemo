@@ -75,7 +75,10 @@
 import BScroll from 'better-scroll'
 import {mapState, mapGetters} from 'vuex'
 import Star from '../../../components/Star/Star.vue'
-import moment from 'moment'
+import dayjs from 'dayjs'
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+
 export default {
 
   data () {
@@ -98,8 +101,7 @@ export default {
   filters: {
     // 自定义时间格式转化过滤器
     dateFormat (value) {
-      return moment(value).add(33, 'months').locale('zh-cn').fromNow()
-      // return format(addMonths(parse(value), 33))
+      return dayjs().to(dayjs(value).add(5, 'years').locale('zh-cn').format())
     }
   },
   // 在computed里获取info和ratings的State数据以及返回好评数量的Getters

@@ -1,6 +1,5 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-// import Vue from 'vue'
 import App from './App';
 import router from './router';
 import store from './store';
@@ -8,6 +7,7 @@ import Vue from 'vue';
 import fastclick from 'fastclick';
 import vueLazyload from 'vue-lazyload';
 import { Button } from 'mint-ui';
+// import { Button } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 // import Raven from "raven-js";
 // import RavenVue from "raven-js/plugins/vue";
@@ -31,7 +31,6 @@ Vue.component(Button.name, Button);
 Vue.use(vueLazyload, {
     loading: require('./common/imgs/loading.gif')
 });
-// Vue.mixin(Datamixin)
 // Sentry错误日志监控
 // Raven.config("https://ce431a99e0884612a053541eef0f2810@sentry.io/1245961", {
 //     release: process.env.RELEASE_VERSION,
@@ -42,7 +41,6 @@ Vue.use(vueLazyload, {
 
 // 关闭vue功能的线上实例提示
 const isDebug_mode = process.env.NODE_ENV !== 'production';
-console.log(isDebug_mode)
 Vue.config.debug = isDebug_mode;
 Vue.config.devtools = isDebug_mode;
 Vue.config.productionTip = isDebug_mode;

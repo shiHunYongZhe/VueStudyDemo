@@ -249,8 +249,6 @@ npm/yarn run build
 
 # 打算优化的小问题（持续修复）
 
-## 引入moment.js文件太大的问题
-
 ## 生成移动端app
 
 ## 持续集成服务 Travis CI，（可参考https://github.com/shiHunYongZhe/travis-ci-demo）

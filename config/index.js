@@ -20,7 +20,7 @@ module.exports = {
       //   pathRewrite: { // 重写路径: 去掉路径中开头的'/api'
       //     '^/api': ''
       //   }
-      // }
+      // },
       //   '/v1': {
       //    target: 'http://cangdu.org:8001',
       //    changeOrigin: true
@@ -34,7 +34,7 @@ module.exports = {
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false, //run/build 之后是否自动打开浏览器
+    autoOpenBrowser: true, //run/build 之后是否自动打开浏览器
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -63,7 +63,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     // 正式打包上线记得改为'./'
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

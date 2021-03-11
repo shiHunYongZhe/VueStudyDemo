@@ -24,10 +24,10 @@ import Router from 'vue-router'
 //   component: r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'demo-01')
 // }
 const home = () => import('../page/Home/Home.vue')
-const search = () => import('../page/Search/Search.vue')
-const order = () => import('../page/Order/Order.vue')
-const profile = () => import('../page/Profile/Profile.vue')
-const download = () => import('../page/Download/Download.vue')
+const search = r => require.ensure([], () => r(require('../page/Search/Search.vue')), 'navpage')
+const order = r => require.ensure([], () => r(require('../page/Order/Order.vue')), 'navpage')
+const profile = r => require.ensure([], () => r(require('../page/Profile/Profile.vue')), 'navpage')
+const download = r => require.ensure([], () => r(require('../page/Download/Download.vue')), 'navpage')
 // 合并打包一些小文件
 const city = r => require.ensure([], () => r(require('../page/City/City.vue')), 'city')
 const searchArea = r => require.ensure([], () => r(require('../page/City/children/searchArea.vue')), 'city')
@@ -43,7 +43,7 @@ const benefitExchange = r => require.ensure([], () => r(require('../page/Benefit
 const benefitCommend = r => require.ensure([], () => r(require('../page/Benefit/children/commend.vue')), 'benefit')
 const points = r => require.ensure([], () => r(require('../page/Points/Points.vue')), 'point')
 const pointsDetail = r => require.ensure([], () => r(require('../page/Points/children/detail.vue')), 'point')
-const onlineShop = () => import('../page/OnlineShop/OnlineShop.vue')
+const onlineShop = r => require.ensure([], () => r(require('../page/OnlineShop/OnlineShop.vue')), 'onlineShop')
 const vipCard = r => require.ensure([], () => r(require('../page/VipCard/VipCard.vue')), 'vipCard')
 const vipInvoiceRecord = r => require.ensure([], () => r(require('../page/VipCard/children/invoiceRecord.vue')), 'vipCard')
 const vipUseCart = r => require.ensure([], () => r(require('../page/VipCard/children/useCart.vue')), 'vipCard')
@@ -53,7 +53,7 @@ const serviceDetail = r => require.ensure([], () => r(require('../page/Service/c
 const shop = r => require.ensure([], () => r(require('../page/Shop/Shop.vue')), 'shop')
 const shopGoods = r => require.ensure([], () => r(require('../page/Shop/ShopGoods/ShopGoods.vue')), 'shop')
 const shopInfo = r => require.ensure([], () => r(require('../page/Shop/ShopInfo/ShopInfo.vue')), 'shop')
-const shopRatings = r => require.ensure([], () => r(require('../page/Shop/ShopRatings/ShopRatings.vue')), 'shop1')
+const shopRatings = r => require.ensure([], () => r(require('../page/Shop/ShopRatings/ShopRatings.vue')), 'shop')
 Vue.use(Router)
 
 // 当一个页面路由太多时，可改用以下写法
@@ -104,9 +104,12 @@ Vue.use(Router)
 
 // export default router
 
+// 根据当前环境判断是否使用严格模式
+// const strict = process.env.NODE_ENV !== 'production'
 export default new Router({
   //  去掉地址中的哈希#，改成历史模式
   mode: 'history',
+  // strict: strict,
   // 记录切换页面时当前的位置，
   // scrollBehavior (to, from, savedPosition) {
   //   if (savedPosition) {

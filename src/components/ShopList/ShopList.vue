@@ -46,15 +46,10 @@
 
 <script>
 import Star from '../Star/Star'
-// import {mapState} from 'vuex'
 export default {
   components: {
     Star
   },
-  // computed: {
-  //   ...mapState(['shops'])
-  // },
-  // 可以采用store获取，也可获取上一页面的props值
   props: {
     shops: Array
   }

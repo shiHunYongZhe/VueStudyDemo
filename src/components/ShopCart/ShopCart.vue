@@ -11,7 +11,7 @@
           </div>
           <div class="price" :class="{highlight: totalCount}">￥{{totalPrice}}</div>
           <div class="desc">另需配送费￥{{info.deliveryPrice}}元</div>
-        </div>icon-shopping
+        </div>
         <div class="content-right">
           <div class="pay" :class="payClass">
             {{payText}}
@@ -60,7 +60,6 @@ export default {
       // 如果总数量为0, 直接不显示
       if (this.totalCount === 0) {
         this.isShow = false
-        // return false
       }
     },
     isShow: function () {

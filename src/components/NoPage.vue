@@ -1,6 +1,6 @@
 <template>
   <div class="flex" v-show="havePage">
-    <img src="../../static/optional-img/github.png" />
+    <img src="../../static/images/github.png" />
     <p @click="onHome">{{ title }}</p>
     <router-link to="./login" class="to_login" v-if="toLogin">
       <mt-button size="small" style="background:#02a774;color:#fff">去登陆</mt-button>

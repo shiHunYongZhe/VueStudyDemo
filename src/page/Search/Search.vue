@@ -1,6 +1,6 @@
 <template>
   <section class="search">
-    <header-top title="搜索" :isBack="false"/>
+    <HeaderTop title="搜索" :isBack="false"/>
     <form class="search_form" @submit.prevent="search">
       <input type="text" placeholder="请输入商家名称" class="search_input" v-model="keyword" @input="checkInput">
       <input type="submit" class="search_submit" @click.prevent="searchTarget('')">

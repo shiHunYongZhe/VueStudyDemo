@@ -1,11 +1,5 @@
 <template>
   <footer class="footer_guide border-1px">
-        <!-- <a href="javascript:;" class="guide_item on">
-    <span class="item_icon">
-    <i class="iconfont icon-food"></i>
-    </span>
-    <span>外卖</span>
-    </a> -->
     <!-- 本应用不是单纯的单页面应用，不要在这里使用router-link标签和router-view -->
     <section class="guide_item" @click="goto({path: '/home'})" :class="{on: isCurrent('/home')}">
       <span class="item_icon">

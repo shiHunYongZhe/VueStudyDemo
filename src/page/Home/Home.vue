@@ -8,7 +8,7 @@
         <span class="header_title_text ellipsis">{{area}}</span>
       </router-link>
       <router-link class="header_login" slot="right" :to="userInfo._id ? '/userinfo' : '/login'">
-        <span class="header_login_text"  v-if="!userInfo._id">登录 | 注册</span>
+        <span class="header_login_text" v-if="!userInfo._id">登录 | 注册</span>
         <span class="header_login_text" v-else>
           <i class="iconfont icon-yonghuming"></i>
         </span>

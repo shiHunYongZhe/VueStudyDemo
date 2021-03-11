@@ -25,6 +25,7 @@ export default {
       showLoading: true
     }
   },
+  //nopage 页面混入
   mixins: [dataMixin],
   components: {
     HeaderTop,

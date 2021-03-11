@@ -1,28 +1,28 @@
  <template>
   <div class="page">
-        <HeaderTop title="我的积分"></HeaderTop>
-        <section class="content_container">
-            <section class="content">
-                <header class="content_header">
-                    <span class="content_title_style">当前积分</span>
-                    <section class="contetn_description">
-                        <img src="../../common/imgs/description.png" height="24" width="24">
-                        <router-link to="/pointsDetail" class="content_title_style">积分说明</router-link>
-                    </section>
-                </header>
-                <p class="content_num">
-                    <span>0.00</span>
-                    <span>元</span>
-                </p>
-                <div class="promit_button" @click="usePoint">提现</div>
-            </section>
-        </section>
-        <p class="deal_detail">交易明细</p>
-        <div class="no_log">
-            <img src="../../common/imgs/no-log.png">
-            <p>暂无明细记录</p>
-        </div>
-        <AlertTip v-show="showAlert" @closeTip="showAlert = false" :alertText="alertText"></AlertTip>
+      <HeaderTop title="我的积分"></HeaderTop>
+      <section class="content_container">
+          <section class="content">
+              <header class="content_header">
+                  <span class="content_title_style">当前积分</span>
+                  <section class="contetn_description">
+                      <img src="../../common/imgs/description.png" height="24" width="24">
+                      <router-link to="/pointsDetail" class="content_title_style">积分说明</router-link>
+                  </section>
+              </header>
+              <p class="content_num">
+                  <span>0.00</span>
+                  <span>元</span>
+              </p>
+              <div class="promit_button" @click="usePoint">提现</div>
+          </section>
+      </section>
+      <p class="deal_detail">交易明细</p>
+      <div class="no_log">
+          <img src="../../common/imgs/no-log.png">
+          <p>暂无明细记录</p>
+      </div>
+      <AlertTip v-show="showAlert" @closeTip="showAlert = false" :alertText="alertText"></AlertTip>
     </div>
 </template>
 

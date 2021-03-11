@@ -75,7 +75,6 @@
       </transition>
     </section>
     <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
-    <!-- <loading v-show="showLoading"></loading> -->
     <transition name="router-slid" mode="out-in">
         <router-view></router-view>
     </transition>
@@ -94,7 +93,6 @@ export default {
     return {
       showAlert: false, // 弹出框
       alertText: null, // 弹出框文字
-      // showLoading: true, // 加载动画
       hongbaoList: {}, // 红包列表
       categoryType: 1 // 红包与商家代金券切换
     }
@@ -119,7 +117,6 @@ export default {
     async initData () {
       if (this.userInfo) {
         // this.hongbaoList = await getHongbaoNum(this.userInfo.user_id)
-        // this.showLoading = false
       }
     }
   },

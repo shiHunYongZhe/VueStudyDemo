@@ -1,6 +1,6 @@
 <template>
   <section class="loginContainer">
-     <HeaderTop title="登录"></HeaderTop>
+    <HeaderTop :title="loginWay? '登录':'密码登录'"></HeaderTop>
     <div class="loginInner">
       <div class="login_header">
         <h2 class="login_logo">Mint外卖</h2>
@@ -32,8 +32,6 @@
                 <input type="text" maxlength="11" placeholder="手机/邮箱/用户名" v-model.lazy="name">
               </section>
               <section class="login_verification">
-                <!-- <input type="text" maxlength="8" placeholder="密码" v-if="showPwd" v-model="pwd">
-                <input type="password" maxlength="8" placeholder="密码" v-else v-model="pwd"> -->
                  <input :type="showPwd ? 'text' : 'password'" maxlength="8" placeholder="密码" v-model="pwd">
                 <div class="switch_button" :class="showPwd?'on':'off'" @click="showPwd=!showPwd">
                   <div class="switch_circle" :class="{right: showPwd}"></div>
@@ -123,15 +121,12 @@ export default {
       } else { // 密码登陆
         const {name, pwd, captcha} = this
         if (!this.name) {
-          // 用户名必须指定
           this.showAlert('用户名必须指定')
           return
         } else if (!this.pwd) {
-          // 密码必须指定
           this.showAlert('密码必须指定')
           return
         } else if (!this.captcha) {
-          // 验证码必须指定
           this.showAlert('验证码必须指定')
           return
         }
@@ -151,12 +146,10 @@ export default {
         const user = result.data
         // 将user保存到vuex的state
         this.$store.dispatch('recordUser', user)
-        // 去个人中心界面
         this.$router.push('/profile')
       } else {
         // 显示新的图片验证码
         this.getCaptcha()
-        // 显示警告提示
         const msg = result.msg
         this.showAlert(msg)
       }

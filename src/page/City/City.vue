@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-top :isBack="false">
+    <HeaderTop :isBack="false">
       <span slot='left' class="header_search"  @click="reload">ele.me</span>
       <router-link class="header_login" slot="right" :to="userInfo._id ? '/userinfo' : '/login'">
         <span class="header_login_text"  v-if="!userInfo._id">登录 | 注册</span>
@@ -8,7 +8,7 @@
           <i class="iconfont icon-yonghuming"></i>
         </span>
       </router-link>
-    </header-top>
+    </HeaderTop>
     <nav class="city_nav">
       <div class="city_tip">
         <span>当前定位城市：</span>
@@ -24,7 +24,7 @@
     <section id="hot_city_container">
       <h4 class="city_title">热门城市</h4>
       <ul class="citylistul clearfix">
-        <router-link  tag="li" v-for="item in hotcity" :to="'/searchArea/' + item.id" :key="item.id">
+        <router-link tag="li" v-for="item in hotcity" :to="'/searchArea/' + item.id" :key="item.id">
             {{item.name}}
         </router-link>
       </ul>
@@ -36,7 +36,7 @@
             <span v-if="index == 0">（按字母排序）</span>
           </h4>
           <ul class="groupcity_name_container citylistul clearfix">
-            <router-link  tag="li" v-for="item in value" :to="'/searchArea/' + item.id" :key="item.id"   class="ellipsis">
+            <router-link tag="li" v-for="item in value" :to="'/searchArea/' + item.id" :key="item.id" class="ellipsis">
                 {{item.name}}
             </router-link>
           </ul>
@@ -88,8 +88,9 @@ export default {
     sortgroupcity () {
       let sortobj = {}
       for (let i = 65; i <= 90; i++) {
-        if (this.groupcity[String.fromCharCode(i)]) {
-          sortobj[String.fromCharCode(i)] = this.groupcity[String.fromCharCode(i)]
+        var code = String.fromCharCode(i)
+        if (this.groupcity[code]) {
+          sortobj[code] = this.groupcity[code]
         }
       }
       return sortobj

@@ -1,5 +1,5 @@
 // 判断一个元素是否在视窗内
-function isInSport (ele, wra) {
+export function isInSport (ele, wra) {
   // 判断该图片是否能够加载，判断图片是否在可视区域内
   const wraHeight = wra.clientHeight
   const rect = ele.getBoundingClientRect()
@@ -12,8 +12,6 @@ function isInSport (ele, wra) {
   }
   return false
 }
-
-export default isInSport
 /**
  * 传入关键字和内容，将内容中含有关键字的部分添加对应的高亮样式
  * @param {*} keyword
