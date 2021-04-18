@@ -80,6 +80,7 @@ exports.styleLoaders = function(options) {
 };
 
 exports.createNotifierCallback = () => {
+    //系统级 桌面提醒( 右下角弹框 )
     const notifier = require('node-notifier');
 
     return (severity, errors) => {

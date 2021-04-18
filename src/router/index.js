@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import NProgress from 'nprogress' // progress bar
+NProgress.configure({ showSpinner: false }) // NProgress Configuration
 // 采用这种方式最终将同步一次性引入组件
 // import home from '../page/Home/Home'
 
@@ -35,14 +37,14 @@ const login = r => require.ensure([], () => r(require('../page/Login/Login.vue')
 const forget = r => require.ensure([], () => r(require('../page/Forget/Forget.vue')), 'login')
 const balance = r => require.ensure([], () => r(require('../page/Balance/Balance.vue')), 'balance')
 const balanceDetail = r => require.ensure([], () => r(require('../page/Balance/children/detail.vue')), 'balance')
-const benefit = r => require.ensure([], () => r(require('../page/Benefit/Benefit.vue')), 'benefit')
-const benefitHBDescription = r => require.ensure([], () => r(require('../page/Benefit/children/hbDescription.vue')), 'benefit')
-const benefitCoupon = r => require.ensure([], () => r(require('../page/Benefit/children/coupon.vue')), 'benefit')
-const benefitHBHistory = r => require.ensure([], () => r(require('../page/Benefit/children/hbHistory.vue')), 'benefit')
-const benefitExchange = r => require.ensure([], () => r(require('../page/Benefit/children/exchange.vue')), 'benefit')
-const benefitCommend = r => require.ensure([], () => r(require('../page/Benefit/children/commend.vue')), 'benefit')
-const points = r => require.ensure([], () => r(require('../page/Points/Points.vue')), 'point')
-const pointsDetail = r => require.ensure([], () => r(require('../page/Points/children/detail.vue')), 'point')
+const benefit = r => require.ensure([], () => r(require('../page/Benefit/Benefit.vue')), 'balance')
+const benefitHBDescription = r => require.ensure([], () => r(require('../page/Benefit/children/hbDescription.vue')), 'balance')
+const benefitCoupon = r => require.ensure([], () => r(require('../page/Benefit/children/coupon.vue')), 'balance')
+const benefitHBHistory = r => require.ensure([], () => r(require('../page/Benefit/children/hbHistory.vue')), 'balance')
+const benefitExchange = r => require.ensure([], () => r(require('../page/Benefit/children/exchange.vue')), 'balance')
+const benefitCommend = r => require.ensure([], () => r(require('../page/Benefit/children/commend.vue')), 'balance')
+const points = r => require.ensure([], () => r(require('../page/Points/Points.vue')), 'balance')
+const pointsDetail = r => require.ensure([], () => r(require('../page/Points/children/detail.vue')), 'balance')
 const onlineShop = r => require.ensure([], () => r(require('../page/OnlineShop/OnlineShop.vue')), 'onlineShop')
 const vipCard = r => require.ensure([], () => r(require('../page/VipCard/VipCard.vue')), 'vipCard')
 const vipInvoiceRecord = r => require.ensure([], () => r(require('../page/VipCard/children/invoiceRecord.vue')), 'vipCard')
@@ -70,11 +72,9 @@ Vue.use(Router)
 //         meta: { showFooter: true }
 //     }
 // ];
-
 // router/home.js的内容
 // import profile from './profile';
 // import ... from './...';
-
 // const router = new Router({
 //   routes: [].concat(
 //       home,
@@ -85,8 +85,9 @@ Vue.use(Router)
 
 
 // 监听路由进入和离开
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  // if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
   //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件
   //     next({
   //       path: '/login',                                               // 验证失败要跳转的页面
@@ -97,10 +98,10 @@ Vue.use(Router)
   // } else {
   //   next()                                                       // 确保一定要调用 next()
   // }
-// });
-// router.afterEach(route => {
-
-// });
+});
+router.afterEach(route => {
+    NProgress.done();
+});
 
 // export default router
 

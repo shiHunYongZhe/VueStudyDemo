@@ -1,6 +1,7 @@
 'use strict';
 
 const chalk = require('chalk');
+//语义化版本号管理的模块
 const semver = require('semver');
 const packageConfig = require('../package.json');
 const shell = require('shelljs');
@@ -19,7 +20,7 @@ const versionRequirements = [
         versionRequirement: packageConfig.engines.node
     }
 ];
-// 以下这段代码注释后，由于不检查版本升级，npm run dev会显著提升效率
+
 if (shell.which('npm')) {
     versionRequirements.push({
         name: 'npm',

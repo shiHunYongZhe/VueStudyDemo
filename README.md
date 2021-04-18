@@ -274,3 +274,5 @@ npm/yarn run build
     - scp -r dist root@47.98.240.154:/var/www/html/fancy
     -
 ```
+fantastic-admin文档学习链接
+https://hooray.gitee.io/fantastic-admin/guide/coding-standard.html#%E5%87%86%E5%A4%87
