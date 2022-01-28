@@ -89,7 +89,7 @@ export default new Router({
   //  去掉地址中的哈希#，改成历史模式
   mode: 'history',
   // strict: strict,
-  // 记录切换页面时当前的位置，
+  // 记录切换页面时当前的位置，下次返回时直接到达之前记录的位置
   // scrollBehavior (to, from, savedPosition) {
   //   if (savedPosition) {
   //     return savedPosition

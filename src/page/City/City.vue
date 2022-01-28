@@ -62,15 +62,6 @@ export default {
   },
 
   mounted () {
-
-    axios({
-    method: 'GET',
-    url: 'http://127.0.0.1:9001/users/userInfo',
-    withCredentials: true
-    })
-    // url: 'http://127.0.0.1:3000/song/url?id=33894312'})
-    .then(res => res.data)
-    .catch(e => e)
     // 获取当前城市
     cityGuess().then(res => {
       this.guessCity = res.name

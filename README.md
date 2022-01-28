@@ -1,6 +1,5 @@
 # happily
 
-> A Vue.js project(Vue外卖App)
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
@@ -232,7 +231,8 @@
 ### install dependencies / 安装依赖
 npm install | yarn
 
-### serve with hot reload at localhost:8080 / 本地开发环境 热加载访问http://localhost:8080
+修改config/index.js 的 dev.host 为本机ip
+###  本地开发环境
 npm/yarn run dev
 
 ### build for production with minification / 构建生产

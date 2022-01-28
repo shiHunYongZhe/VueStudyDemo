@@ -114,10 +114,10 @@ import {mapState} from 'vuex'
 export default {
   methods: {
     logout () {
-      MessageBox.confirm('确认退出吗?').then(action => {
+      MessageBox.confirm('确认退出吗?').then(() => {
         this.$store.dispatch('logout')
         Toast('退出成功')
-      }, action => {
+      }, () => {
         console.log('取消登录')
       })
     }

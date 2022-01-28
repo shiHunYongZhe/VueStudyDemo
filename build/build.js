@@ -1,5 +1,5 @@
 'use strict';
-// 以下这段代码注释后，由于不检查版本升级，npm run dev会显著提升效率
+// 检查版本升级，如果不检查，npm run dev会显著提升效率
 require('./check-versions')();
 
 process.env.NODE_ENV = 'production';
@@ -19,7 +19,7 @@ const webpackConfig = require('./webpack.prod.conf');
 const spinner = ora('building for production...');
 spinner.start();
 
-// 打包之前删除上次打包的文件
+// 打包之前先删除上次打包的文件
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     if (err) throw err;
     webpack(webpackConfig, (Err, stats) => {

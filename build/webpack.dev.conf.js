@@ -10,6 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const portfinder = require('portfinder');
+// 如不使用mock.js，则可在这里设置接口
 // var appData = require('../src/mock/shops.json')
 // var ratings = appData.ratings
 const HOST = process.env.HOST;

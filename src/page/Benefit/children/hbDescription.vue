@@ -8,20 +8,9 @@
 <script>
 import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import showdown from 'showdown'
-import BScroll from 'better-scroll'
 import hbDescription from './hbDescription.md'
 export default {
   mounted () {
-    this.$nextTick(() => {
-      // 忽略eslint 报错
-      // eslint-disable-next-line no-new
-      new BScroll('#scroll_section', {
-        deceleration: 0.001,
-        bounce: true,
-        swipeTime: 1800,
-        click: true
-      })
-    })
   },
   components: {
     HeaderTop

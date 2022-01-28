@@ -127,7 +127,7 @@ module.exports = {
         tls: 'empty',
         child_process: 'empty'
     },
-    // 拒绝以下包被打包进来，不过需要在html使用CDN引入外部文件，依然可以在项目中使用import语法，键名是import的npm包名，键值是该库暴露的全局变量,
+    // 拒绝以下包被打包进来，不过需要在html使用CDN引入外部文件，依然可以在项目中使用import语法，键名value是import的npm包名，键值key是该库暴露的全局变量,
     // externals: {
     //     vue: 'Vue',
     //     'vue-router': 'VueRouter',

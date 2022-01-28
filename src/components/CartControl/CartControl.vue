@@ -11,7 +11,9 @@
 <script>
 export default {
   props: {
-    food: Object
+    food:{
+      type: Object,
+    }
   },
 
   methods: {

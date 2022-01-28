@@ -7,7 +7,7 @@
       </span>
       <span>首页</span>
     </section>
-    <section class="guide_item" @click = "goto({path: '/search'})" :class="{on: isCurrent('/search')}">
+    <section class="guide_item" @click="goto({path: '/search'})" :class="{on: isCurrent('/search')}">
       <span class="item_icon">
         <i class="iconfont icon-search"></i>
       </span>

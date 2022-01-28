@@ -56,7 +56,7 @@
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import AlertTip from '../../components/AlertTip/AlertTip.vue'
 import {reqSendCode, reqSmsLogin, reqPwdLogin} from '../../api'
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   data () {
     return {
