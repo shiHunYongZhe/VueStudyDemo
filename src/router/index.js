@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import NProgress from 'nprogress' // progress bar
-NProgress.configure({ showSpinner: false }) // NProgress Configuration
+
 // 采用这种方式最终将同步一次性引入组件
 // import home from '../page/Home/Home'
 
@@ -81,27 +80,6 @@ Vue.use(Router)
 //        ...
 //   )
 // });
-
-
-
-// 监听路由进入和离开
-router.beforeEach((to, from, next) => {
-  NProgress.start();
-  // if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
-  //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件
-  //     next({
-  //       path: '/login',                                               // 验证失败要跳转的页面
-  //     })
-  //   } else {
-  //     next()
-  //   }
-  // } else {
-  //   next()                                                       // 确保一定要调用 next()
-  // }
-});
-router.afterEach(route => {
-    NProgress.done();
-});
 
 // export default router
 

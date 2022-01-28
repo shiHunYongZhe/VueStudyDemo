@@ -30,7 +30,7 @@
 
 1. 熟悉一个项目的开发流程
 2. 学会组件化、模块化、工程化的开发模式
-3. 掌握使用 vue-cli 脚手架初始化 Vue.js 项目，vue全家桶开发应用
+3. 掌握使用 vue-cli(2.x) 脚手架初始化 Vue.js 项目，vue全家桶开发应用
 4. 学会使用mock.js模拟 json 后端数据以及接口，实现前后端分离开发
 5. 学会 ES6+eslint 的开发方式
 6. 掌握一些项目优化技巧，如vue-lazyload 实现图片惰加载
@@ -276,3 +276,8 @@ npm/yarn run build
 ```
 fantastic-admin文档学习链接
 https://hooray.gitee.io/fantastic-admin/guide/coding-standard.html#%E5%87%86%E5%A4%87
+
+如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？
+讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。
+
+那么，为什么会存在打包成 `base64` 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 `http` 请求，当图片多了的时候，它就会损耗你的性能。

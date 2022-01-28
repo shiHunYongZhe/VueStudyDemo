@@ -60,11 +60,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }
     },
     plugins: [
-        new webpack.DefinePlugin({
+        new webpack.DefinePlugin({ // 编译时配置的全局环境
             'process.env': require('../config/dev.env')
         }),
+        // 热更新插件
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+        // 不触发错误，即编译后的运行包正常执行
         new webpack.NoEmitOnErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
@@ -95,7 +97,7 @@ module.exports = new Promise((resolve, reject) => {
             // add port to devServer config
             devWebpackConfig.devServer.port = port;
 
-            // Add FriendlyErrorsPlugin
+            // Add FriendlyErrorsPlugin 友好的错误提示
             devWebpackConfig.plugins.push(
                 new FriendlyErrorsPlugin({
                     compilationSuccessInfo: {

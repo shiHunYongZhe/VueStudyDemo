@@ -25,7 +25,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     output: {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js') // 非入口文件的文件名，而又需要被打包出来的文件命名配置，如按需加载的模块
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -34,6 +34,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         }),
         new UglifyJsPlugin({
             uglifyOptions: {
+              // 压缩配置，不显示警告
                 compress: {
                     warnings: false
                 }
@@ -42,6 +43,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             parallel: true
         }),
         // extract css into its own file
+        // 将js引入css分离插件，分离出来的css名
         new ExtractTextPlugin({
             filename: utils.assetsPath('css/[name].[contenthash].css'),
             // Setting the following option to `false` will not extract CSS from codesplit chunks.
@@ -59,13 +61,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
-            template: 'index.html',
-            inject: true,
+            filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index, // 生成的文件名
+            template: 'index.html', // 依据的模板
+            inject: true, // 注入的js文件会被放在body标签中，当值为head的时候，将被放在head中
             minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true
+                removeComments: true, // 删除html中的注释代码
+                collapseWhitespace: true, // 删除html中的空白符
+                removeAttributeQuotes: true // 删除html中的元素属性引号
                 // more options:
                 // https://github.com/kangax/html-minifier#options-quick-reference
             },
@@ -94,6 +96,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // This instance extracts shared chunks from code splitted chunks and bundles them
         // in a separate chunk, similar to the vendor chunk
         // see: https://webpack.js.org/plugins/commons-chunk-plugin/#extra-async-commons-chunk
+        // 分离公共js到vendor中
         new webpack.optimize.CommonsChunkPlugin({
             name: 'app',
             async: 'vendor-async',
@@ -110,17 +113,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         ])
     ]
 });
-
+// 如果配置文件开启gzip
 if (config.build.productionGzip) {
+  // 引入生成.gz压缩文件的插件
     const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
     webpackConfig.plugins.push(
         new CompressionWebpackPlugin({
-            asset: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: new RegExp(`\\.(${config.build.productionGzipExtensions.join('|')})$`),
-            threshold: 10240,
-            minRatio: 0.8
+            asset: '[path].gz[query]',// 目标文件名
+            algorithm: 'gzip',// 使用gzip压缩
+            test: new RegExp(`\\.(${config.build.productionGzipExtensions.join('|')})$`),// 满足正则表达式的文件会被压缩
+            threshold: 10240,// 资源文件大于10kb会被压缩
+            minRatio: 0.8// 最小压缩比达到0.8会被压缩
         })
     );
 }

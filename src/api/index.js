@@ -82,3 +82,41 @@ export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {
   type: 'search'
 })
 
+// 其他新奇的写法，本项目用不到，纯做收藏
+// jsonp请求单独写， 比如发送jsonp请求得到天气信息
+export const reqWeather = (city) => {
+  // 执行器函数: 内部去执行异步任务,
+  // 成功了调用resolve(), 失败了不调用reject(), 直接提示错误
+  return new Promise((resolve, reject) => {
+    const url = `http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
+    jsonp(url, {}, (error, data) => {
+      if (!error && data.error===0) { // 成功的
+        const {dayPictureUrl, weather} = data.results[0].weather_data[0]
+        resolve({dayPictureUrl, weather})
+      } else { // 失败的
+        message.error('获取天气信息失败')
+      }
+    })
+  })
+}
+
+/* 根据Name/desc搜索产品分页列表 */
+export const reqSearchProducts = ({
+  pageNum,
+  pageSize,
+  searchName,
+  searchType // 它的值是'productName'或者'productDesc'
+}) => ajax(BASE + '/manage/product/search', {
+// method: 'GET',
+params: {
+  pageNum,
+  pageSize,
+  [searchType]: searchName,
+}
+})
+
+/* 添加/修改商品 */
+export const reqAddUpdateProduct = (product) => ajax.post(
+  BASE + '/manage/product/' + (product._id ? 'update' : 'add'),
+  product
+)

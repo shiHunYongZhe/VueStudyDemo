@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '../static/js'), // 打包后文件输出的位置
         filename: '[name].dll.js',
-        library: '[name]_library'
+        library: '[name]_library' // 打包的库向外暴露出去的内容叫什么名字
     },
     plugins: [
         new webpack.DllPlugin({

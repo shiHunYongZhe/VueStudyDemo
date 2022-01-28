@@ -4,12 +4,12 @@ require('./check-versions')();
 
 process.env.NODE_ENV = 'production';
 
-//实现node.js 命令行环境的 loading效果，以及其他各种状态
+//实现node.js 命令行环境的 loading效果
 const ora = require('ora');
-//递归删除文件的node插件，在项目的文件编译之前，可以清除dist文件夹里的内容
+//node环境下的 rm -rf插件，在项目的文件编译之前，可以清除dist文件夹里的内容
 const rm = require('rimraf');
 const path = require('path');
-//console.log自定义颜色输出
+// 终端显示带颜色的文字
 const chalk = require('chalk');
 const webpack = require('webpack');
 const config = require('../config');

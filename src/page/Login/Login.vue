@@ -168,7 +168,7 @@ export default {
       // 现在没开通后台服务器，暂时用静态图片代替，下面的方法可使用外部api生成动态图片（测试已成功）
       // axios({
       //   method:"post",
-      //   url:"http://route.showapi.com/26-4", 
+      //   url:"http://route.showapi.com/26-4",
       //   params: {
       //     // 这里使用https://www.showapi.com/的api，免费注册后可使用
 
