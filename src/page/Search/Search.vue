@@ -218,7 +218,7 @@ export default {
   .search_history
     .history_list
       background-color #fff
-      border-bottom 0.025rem solid $bc
+      border-bottom 5px solid $bc
       font(16px, 42px)
       padding 0 8px
       display flex
@@ -240,5 +240,5 @@ export default {
     margin 0 auto
     color #333
     text-align center
-    padding-top 5rem
+    padding-top 100px
 </style>

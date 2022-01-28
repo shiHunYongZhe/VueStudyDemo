@@ -48,7 +48,7 @@ export default {
 
 <style lang="stylus">
   .detail_page
-    padding-top 45px
+    padding-top 45px;
   .scroll_container
     overflow-y: auto;
 </style>

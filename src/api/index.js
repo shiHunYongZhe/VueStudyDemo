@@ -107,16 +107,14 @@ export const reqSearchProducts = ({
   searchName,
   searchType // 它的值是'productName'或者'productDesc'
 }) => ajax(BASE + '/manage/product/search', {
-// method: 'GET',
-params: {
   pageNum,
   pageSize,
-  [searchType]: searchName,
-}
+  [searchType]: searchName
 })
 
 /* 添加/修改商品 */
-export const reqAddUpdateProduct = (product) => ajax.post(
+export const reqAddUpdateProduct = (product) => ajax(
   BASE + '/manage/product/' + (product._id ? 'update' : 'add'),
-  product
+  product,
+  post
 )

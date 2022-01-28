@@ -57,12 +57,12 @@ export default {
   background #fff
   padding-top 45px
 .content_container
-  padding .3rem
+  padding 6px
   background-color $green
   .content
     padding 10px
     background-color #fff
-    border-radius .15rem
+    border-radius 3px
     .content_header
       flex-j()
       font-size 14px

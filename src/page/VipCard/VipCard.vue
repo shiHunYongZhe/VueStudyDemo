@@ -158,7 +158,7 @@ export default {
     align-items center
     span
       sc(12px, #999)
-      margin-right .2rem
+      margin-right 4px
     svg
       wh(10px, 10px)
 .common_style

@@ -252,7 +252,7 @@ export default {
   transition: all .4s;
 }
 .router-slid-enter, .router-slid-leave-active {
-  transform: translate3d(2rem, 0, 0);
+  transform: translate3d(40px, 0, 0);
   opacity: 0;
 }
 </style>
