@@ -3,7 +3,7 @@
 ## 1. 项目描述
 
 1. 此项目为一个前后端分离的外卖 Web App (SPA) 项目
-2. 使用了 Vue 全家桶+ES6+Webpack 等前端最新技术
+2. 使用了 Vue2 全家桶+ES6+Webpack 等前端最新技术
     * `Vue`：用于构建用户界面的 MVVM 框架
     * `vue-router`：为单页面应用提供的路由系统
     * `vuex`：Vue 集中状态管理，在多个组件共享某些状态时非常便捷
@@ -249,8 +249,6 @@ npm/yarn run build
 
 # 打算优化的小问题（持续修复）
 
-## 生成移动端app
-
 ## 持续集成服务 Travis CI，（可参考https://github.com/shiHunYongZhe/travis-ci-demo）
 
 - 利用 Travis CI，监听 Github 项目 master，一旦检测到 master 有代码变动，自动执行脚本，并把编译打包完成的项目自动发送部署到服务器，不用再像以前一样，需要 ssh 登录到服务器，再执行 git pull 操作。
@@ -266,16 +264,14 @@ npm/yarn run build
     - openssl aes-256-cbc -K $encrypted_87bf11d507f0_key -iv $encrypted_87bf11d507f0_iv
       -in id_rsa.enc -out ~/.ssh/id_rsa -d
     - chmod 600 ~/.ssh/id_rsa
-    - echo -e "Host 47.98.240.154\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+    - echo -e "Host 47.98.240.999\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     script:
     - npm install cnpm --registry=https://registry.npm.taobao.org
     - cnpm install
     - npm run build
-    - scp -r dist root@47.98.240.154:/var/www/html/fancy
+    - scp -r dist root@47.98.240.999:/var/www/html/fancy
     -
 ```
-fantastic-admin文档学习链接
-https://hooray.gitee.io/fantastic-admin/guide/coding-standard.html#%E5%87%86%E5%A4%87
 
 如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？
 讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。

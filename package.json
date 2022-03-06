@@ -16,7 +16,6 @@
         "fastclick": "^1.0.6",
         "mint-ui": "^2.2.13",
         "mockjs": "^1.0.1-beta3",
-        "nprogress": "^0.2.0",
         "showdown": "^1.9.0",
         "swiper": "6.8.4",
         "vue": "^2.5.17",
