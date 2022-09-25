@@ -229,14 +229,14 @@
 ```
 
 ### install dependencies / 安装依赖
-npm install | yarn
+npm install
 
 修改config/index.js 的 dev.host 为本机ip
 ###  本地开发环境
-npm/yarn run dev
+npm run dev
 
 ### build for production with minification / 构建生产
-npm/yarn run build
+npm run build
 
 ### 每当本地修改后，想提交到远程仓库，只需点击auto-commit.git文件即可
 
@@ -264,12 +264,12 @@ npm/yarn run build
     - openssl aes-256-cbc -K $encrypted_87bf11d507f0_key -iv $encrypted_87bf11d507f0_iv
       -in id_rsa.enc -out ~/.ssh/id_rsa -d
     - chmod 600 ~/.ssh/id_rsa
-    - echo -e "Host 47.98.240.999\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+    - echo -e "Host 192.168.0.101\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
     script:
     - npm install cnpm --registry=https://registry.npm.taobao.org
     - cnpm install
     - npm run build
-    - scp -r dist root@47.98.240.999:/var/www/html/fancy
+    - scp -r dist root@192.168.0.101:/var/www/html/fancy
     -
 ```
 
