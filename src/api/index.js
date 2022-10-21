@@ -33,6 +33,8 @@ export const reqSearchShop = (geohash, keyword) => ajax('/search_shops', {geohas
 export const reqSendCode = phone => ajax('/sendcode', {phone})
 //账号密码登录
 export const reqPwdLogin = ({name, pwd, captcha}) => ajax('/login_pwd', {name, pwd, captcha}, 'POST')
+//获取图片验证码
+export const getCaptcha = () => ajax('/getCaptcha')
 //手机号验证码登录
 export const reqSmsLogin = (phone, code) => ajax('/login_sms', {phone, code}, 'POST')
 //改密码
@@ -63,16 +65,6 @@ export const exChangeHongbao = (id, exchangeCode, captchaCode) => ajax('/v1/user
   exchangeCode,
   captchaCode
 }, 'POST')
-
-//获取当前所在城市
-// export const currentcity = number => ajax('/v1/cities/' + number)
-
-//获取搜索地址
-// export const searchplace = (cityid, value) => ajax('/v1/pois', {
-//   type: 'search',
-//   city_id: cityid,
-//   keyword: value
-// })
 
 //获取search页面搜索结果
 export const searchRestaurant = (geohash, keyword) => fetch('/v4/restaurants', {

@@ -1,6 +1,6 @@
  <template>
   <div class="page">
-    <HeaderTop title="推荐有奖"></HeaderTop>
+    <header-top title="推荐有奖" />
     <section class="activity_banner">
       <img src="../../../common/imgs/activity.png">
     </section>
@@ -33,13 +33,11 @@
       <img src="../../../common/imgs/qianbao.png">
       <p>还不赶紧去邀请好友</p>
     </section>
-    <AlertTip v-if="showAlert" @closeTip="closeTip" :alertText="alertText"></AlertTip>
+    <alert-tip v-if="showAlert" @closeTip="closeTip" :alertText="alertText"></alert-tip>
     </div>
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../../components/AlertTip/AlertTip.vue'
 import {mapState} from 'vuex'
 
 export default {
@@ -48,10 +46,6 @@ export default {
       showAlert: false,
       alertText: null
     }
-  },
-  components: {
-    HeaderTop,
-    AlertTip
   },
   computed: {
     ...mapState([

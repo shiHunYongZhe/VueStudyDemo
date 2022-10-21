@@ -1,6 +1,6 @@
 <template>
   <div class="rating_page">
-    <HeaderTop title="服务中心"></HeaderTop>
+    <header-top title="服务中心" />
     <section class="service_connect">
       <a href="https://ecs-im.ele.me/" class="service_left">
         <svg viewBox="0 0 46 46" id="human" width="100%" height="100%">
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import {mapState, mapMutations} from 'vuex'
 // import {reqquestion} from '../../api'
 import BScroll from 'better-scroll'
@@ -48,9 +47,6 @@ export default {
       questionTitle: [], // 问题标题
       questionDetail: [] // 问题详情
     }
-  },
-  components: {
-    HeaderTop
   },
   mounted () {
     this.initData()

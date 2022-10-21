@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ShopHeader></ShopHeader>
+    <shop-header></shop-header>
     <div class="tab">
       <div class="tab-item">
         <!-- 使用replace的方式进行路由切换 （路由懒加载） -->

@@ -1,6 +1,6 @@
 <template>
   <div class="forgetContainer">
-    <HeaderTop title="重置密码"></HeaderTop>
+    <header-top title="重置密码" />
     <form class="resetPwdForm">
       <section class="login_message">
         <input type="text" placeholder="账号" name="phone" v-model="phoneNumber">
@@ -13,75 +13,53 @@
       </section>
       <section class="login_message">
         <input type="text" placeholder="验证码" maxlength="11" v-model="captcha">
-        <img src="../Login/images/captcha.svg" alt="captcha" class="get_verification" @click="getCode" ref="captcha">
+        <img class="get_verification" src="" alt="captcha" @click="getCaptcha" ref="captcha">
       </section>
       <div class="modify" @click="resetButton">确认修改</div>
     </form>
-    <AlertTip v-if="showAlert"  @closeTip="closeTip" :alertText="alertText"></AlertTip>
+    <alert-tip v-show="alertShow"  @closeTip="closeTip" :alertText="alertText"></alert-tip>
   </div>
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../components/AlertTip/AlertTip.vue'
-import { clearInterval } from 'timers'
-import { reqSendCode, changePassword } from '../../api'
+import { getCaptcha, changePassword } from '../../api'
 
 export default {
   data () {
     return {
       phoneNumber: null, // 电话号码
       newPassWord: null, // 新密码
-      oldPassWord: null, // 旧密码
       confirmPassWord: null, // 确认密码
-      captchaCodeImg: null, // 验证码地址
-      mobileCode: null, // 短信验证码
-      computedTime: 0, // 倒数记时
-      showAlert: false, // 显示提示组件
+      alertShow: false, // 显示提示组件
       alertText: null, // 提示的内容
       accountType: 'mobile', // 注册方式
       captcha: ''
     }
   },
+  created() {
+    this.getCaptcha()
+  },
   methods: {
-    async getCode () {
-      if (!this.computedTime) {
-        this.computedTime = 60
-        this.interValId = setInterval(() => {
-          this.computedTime--
-          if (this.computedTime === 0) {
-            clearInterval(this.interValId)
-          }
-        }, 1000)
-      }
-      // 发送ajax请求获取数据（向指定手机号发送验证码短信）
-      const result = await reqSendCode(this.phone)
-      if (result.code === 1) {
-        this.showAlert(result.msg)
-        if (this.computedTime) {
-          this.computedTime = 0
-          clearInterval(this.interValId)
-          this.interValId = undefined
-        }
-      }
+    // 获取一个新的图片验证码
+    async getCaptcha () {
+      let res = await getCaptcha()
+      this.$refs.captcha.src = res.data
     },
     // 重置密码
     async resetButton () {
       if (!this.phoneNumber && !this.inputPhoneReg) {
         this.showAlert('请输入正确的账号')
-      } else if (!this.oldPassWord) {
-        this.showAlert('请输入旧密码')
       } else if (!this.newPassWord) {
         this.showAlert('请输入新密码')
       } else if (!this.confirmPassWord) {
         this.showAlert('请输入确认密码')
       } else if (this.newPassWord !== this.confirmPassWord) {
         this.showAlert('两次输入的密码不一致')
-      } else if (!this.mobileCode) {
+      } else if (!this.captcha) {
         this.showAlert('请输验证码')
       }
       // 发送ajax请求（修改密码）
-      const res = await changePassword()(this.phoneNumber, this.oldPassWord, this.newPassWord, this.confirmPassWord, this.mobileCode)
+      const res = await changePassword()(this.phoneNumber, this.newPassWord, this.confirmPassWord, this.captcha)
       if (res.message) {
         this.showAlert(res.message)
         this.getCode()
@@ -89,13 +67,15 @@ export default {
         this.showAlert('密码修改成功')
       }
     },
+    showAlert (alertText) {
+      this.alertShow = true
+      this.alertText = alertText
+    },
+    // 关闭警告框
     closeTip () {
-      this.showAlert = false
-    }
-  },
-  components: {
-    HeaderTop,
-    AlertTip
+      this.alertShow = false
+      this.alertText = ''
+    },
   },
   computed: {
     inputPhoneReg () {

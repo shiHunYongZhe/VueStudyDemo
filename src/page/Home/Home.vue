@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <HeaderTop :isBack="false">
+    <header-top :isBack="false">
       <router-link class="header_search" slot="left" to="/search">
         <i class="iconfont icon-sousuo"></i>
       </router-link>
@@ -13,7 +13,7 @@
           <i class="iconfont icon-yonghuming"></i>
         </span>
       </router-link>
-    </HeaderTop>
+    </header-top>
     <!-- 首页导航轮播图 -->
     <nav class="home_nav">
       <div class="swiper-container" v-if="categorys.length">
@@ -89,7 +89,7 @@ export default {
     }
   },
   watch: {
-    categorys (value) {
+    categorys () {
       // 这里不要使用setTimeOut(fn, 0),虽然可以实现效果, 但是语义不准确,不符合规范
       this.$nextTick(() => {
         // eslint-disable-next-line no-new
@@ -112,8 +112,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
 // 由于swiper-pagination-bullet的问题，这里不要加scope
+<style lang="stylus" rel="stylesheet/stylus">
 @import "../../../node_modules/swiper/swiper.min.css"
 @import "~common/stylus/mixins.styl"
 .icon-sousuo

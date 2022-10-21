@@ -1,6 +1,6 @@
 <template>
   <div class="profileContainer">
-    <HeaderTop title="我的" :isBack="false"></HeaderTop>
+    <header-top title="我的" :isBack="false" />
     <section class="profile_number">
       <router-link :to="userInfo._id ? '/userinfo' : '/login'" class="profile_link">
         <div class="profile_image">
@@ -45,17 +45,6 @@
         </span>
         <div class="my_order_div">
           <span>我的订单</span>
-          <span class="my_order_icon">
-            <i class="iconfont icon-previewright"></i>
-          </span>
-        </div>
-      </router-link>
-      <router-link to="/onlineShop" class="my_order">
-        <span>
-          <i class="iconfont icon-jifen"></i>
-        </span>
-        <div class="my_order_div">
-          <span>积分商城</span>
           <span class="my_order_icon">
             <i class="iconfont icon-previewright"></i>
           </span>
@@ -107,8 +96,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../components/AlertTip/AlertTip.vue'
 import {MessageBox, Toast} from 'mint-ui'
 import {mapState} from 'vuex'
 export default {
@@ -121,10 +108,6 @@ export default {
         console.log('取消登录')
       })
     }
-  },
-  components: {
-    HeaderTop,
-    AlertTip
   },
   computed: {
     ...mapState(['userInfo'])

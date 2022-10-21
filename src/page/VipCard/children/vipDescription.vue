@@ -1,6 +1,6 @@
  <template>
   <div class="page_container">
-        <HeaderTop title="我的优惠"></HeaderTop>
+        <header-top title="我的优惠" />
         <div class="markdown">
             <blockquote>
               <p>尊敬的用户，随着会员体系逐渐完善，自2016年10月10日起，饿了么会员权益将做如下优化：
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import {mapState, mapMutations} from 'vuex'
 
 export default {
@@ -45,9 +44,6 @@ export default {
     ...mapState([
       'userInfo'
     ])
-  },
-  components: {
-    HeaderTop
   },
   methods: {
     ...mapMutations([

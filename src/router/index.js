@@ -44,7 +44,6 @@ const benefitExchange = r => require.ensure([], () => r(require('../page/Benefit
 const benefitCommend = r => require.ensure([], () => r(require('../page/Benefit/children/commend.vue')), 'balance')
 const points = r => require.ensure([], () => r(require('../page/Points/Points.vue')), 'balance')
 const pointsDetail = r => require.ensure([], () => r(require('../page/Points/children/detail.vue')), 'balance')
-const onlineShop = r => require.ensure([], () => r(require('../page/OnlineShop/OnlineShop.vue')), 'onlineShop')
 const vipCard = r => require.ensure([], () => r(require('../page/VipCard/VipCard.vue')), 'vipCard')
 const vipInvoiceRecord = r => require.ensure([], () => r(require('../page/VipCard/children/invoiceRecord.vue')), 'vipCard')
 const vipUseCart = r => require.ensure([], () => r(require('../page/VipCard/children/useCart.vue')), 'vipCard')
@@ -215,14 +214,6 @@ export default new Router({
       path: '/pointsDetail',
       name: 'pointsDetail',
       component: pointsDetail
-    },
-    {
-      path: '/onlineShop',
-      name: 'onlineShop',
-      component: onlineShop,
-      meta: {
-        showFooter: true
-      }
     },
     {
       path: '/vipCard',

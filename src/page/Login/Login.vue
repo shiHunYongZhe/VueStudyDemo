@@ -1,6 +1,6 @@
 <template>
   <section class="loginContainer">
-    <HeaderTop :title="loginWay? '登录':'密码登录'"></HeaderTop>
+    <header-top :title="loginWay? '登录':'密码登录'" />
     <div class="loginInner">
       <div class="login_header">
         <h2 class="login_logo">Mint外卖</h2>
@@ -55,8 +55,7 @@
 <script>
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import AlertTip from '../../components/AlertTip/AlertTip.vue'
-import {reqSendCode, reqSmsLogin, reqPwdLogin} from '../../api'
-// import axios from 'axios'
+import {reqSendCode, reqSmsLogin, reqPwdLogin, getCaptcha} from '../../api'
 export default {
   data () {
     return {
@@ -164,28 +163,18 @@ export default {
       this.alertText = ''
     },
     // 获取一个新的图片验证码
-    getCaptcha () {
-      // 现在没开通后台服务器，暂时用静态图片代替，下面的方法可使用外部api生成动态图片（测试已成功）
-      // axios({
-      //   method:"post",
-      //   url:"http://route.showapi.com/26-4",
-      //   params: {
-      //     // 这里使用https://www.showapi.com/的api，免费注册后可使用
-
-      //     "showapi_appid": '', //这里需要改成自己的appid
-      //     "showapi_sign": '',  //这里需要改成自己的应用的密钥secret
-      //   }}).then(res => {
-      //   this.$refs.captcha.src = res.data.showapi_res_body.img_path;
-      // })
+    async getCaptcha () {
+      let res = await getCaptcha()
+      this.$refs.captcha.src = res.data
     }
   },
   components: {
     AlertTip,
     HeaderTop
+  },
+  created() {
+    this.getCaptcha()
   }
-  // created() {
-  //   this.getCaptcha()
-  // }
 }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>

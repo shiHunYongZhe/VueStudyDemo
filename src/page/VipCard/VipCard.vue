@@ -1,6 +1,6 @@
  <template>
   <div class="rating_page">
-        <HeaderTop title="会员中心"></HeaderTop>
+        <header-top title="会员中心"/>
         <section v-if="userInfo">
             <p class="buy_for">为账户 <span>{{userInfo.username}}</span> 购买会员</p>
             <section class="vip_prerogative">
@@ -69,7 +69,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import {mapState, mapMutations} from 'vuex'
 
 export default {
@@ -78,9 +77,6 @@ export default {
       'userInfo'
     ])
   },
-  components: {
-    HeaderTop
-  },
   methods: {
     ...mapMutations([
       'ORDER_SUCCESS', 'BUY_CART'
@@ -88,7 +84,7 @@ export default {
     buyCart () {
       this.ORDER_SUCCESS({order_id: '399525134200981325'})
       this.BUY_CART(20)
-      this.$router.push('/confirmOrder/payment')
+      // this.$router.push('/confirmOrder/payment')
     }
   }
 }

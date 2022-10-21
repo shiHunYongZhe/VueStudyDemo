@@ -16,23 +16,35 @@
   <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
   <!-- 这里href="/static/css/reset.css"的路径前面加'.'在子路由页面会出现找不到资源，在服务器上配置即可，不然只能不加'.' -->
   <link rel="stylesheet" href="/static/css/reset.css" type="text/css">
+  <link rel="stylesheet" href="/static/css/loading.css" type="text/css">
   <link rel="stylesheet" href="http://at.alicdn.com/t/font_726904_ubdf6pmxsf.css">
   <!-- DNS预解析 -->
   <link rel="dns-prefetch" href="//cdn.bootcss.com" />
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div class="first-loading-wrp">
+      <div class="loading-wrp">
+        <span class="dot dot-spin"><i></i><i></i><i></i><i></i></span>
+      </div>
+      <h1>happily</h1>
+    </div>
+  </div>
   <!--生产环境,启用在线cdn-->
   <!-- <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
   <script src="https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
   <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script> -->
   <!-- built files will be auto injected -->
-  <!-- <script>
+  <script>
       if (!/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
         alert('请在移动端打开，体验会更好噢')
       }
+    </script>
+    <!-- <script>
+      /^http(s*):\/\//.test(location.href) ||
+        alert("基于vue-admin-beautiful开发的项目需要部署到服务器下访问");
     </script> -->
 </body>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderTop :isBack="false">
+    <header-top :isBack="false">
       <span slot='left' class="header_search"  @click="reload">ele.me</span>
       <router-link class="header_login" slot="right" :to="userInfo._id ? '/userinfo' : '/login'">
         <span class="header_login_text"  v-if="!userInfo._id">登录 | 注册</span>
@@ -8,7 +8,7 @@
           <i class="iconfont icon-yonghuming"></i>
         </span>
       </router-link>
-    </HeaderTop>
+    </header-top>
     <nav class="city_nav">
       <div class="city_tip">
         <span>当前定位城市：</span>
@@ -47,10 +47,8 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop'
 import {cityGuess, hotcity, groupcity} from '../../api/index'
 import {mapState} from 'vuex'
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -79,10 +77,6 @@ export default {
     })
   },
 
-  components: {
-    HeaderTop
-  },
-
   computed: {
     ...mapState(['userInfo']),
     // 将获取的数据按照A-Z字母开头排序
@@ -99,7 +93,6 @@ export default {
   },
 
   methods: {
-    // 点击图标刷新页面
     reload () {
       window.location.reload()
     }

@@ -90,7 +90,6 @@ export default {
   mounted () {
     this.$store.dispatch('getShopRatings', () => {
       this.$nextTick(() => {
-        // 传入DOM元素
         // eslint-disable-next-line no-new
         new BScroll(this.$refs.ratings, {
           click: true

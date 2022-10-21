@@ -1,27 +1,25 @@
  <template>
   <div class="page">
-    <HeaderTop title="兑换红包"></HeaderTop>
+    <header-top title="兑换红包" />
     <form class="exchange_code">
       <input type="text" placeholder="请输入兑换码" v-model="exchangeCode" class="exchange_input">
       <section class="input_container captcha_code_container">
         <input type="text" placeholder="验证码" maxlength="4" v-model="codeNumber">
         <div class="img_change_img">
-          <img :src="captchaCodeImg" src="../../Login/images/captcha.svg"> 
+          <img :src="captcha" >
           <div class="change_img" @click="getCaptcha">
           </div>
         </div>
       </section>
     </form>
     <div class="determine" @click="exchange" :class="{active: status}">兑换</div>
-    <AlertTip v-if="showAlert"  @closeTip="closeTip" :alertText="alertText"></AlertTip>
+    <alert-tip v-if="showAlert"  @closeTip="closeTip" :alertText="alertText"></alert-tip>
   </div>
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../../components/AlertTip/AlertTip.vue'
 import {mapState} from 'vuex'
-import {exChangeHongbao} from '../../../api'
+import {exChangeHongbao, getCaptcha} from '../../../api'
 
 export default {
   data () {
@@ -30,15 +28,11 @@ export default {
       alertText: '',
       exchangeCode: '',
       codeNumber: '',
-      captchaCodeImg: ''
+      captcha: ''
     }
   },
-  mounted () {
+  created () {
     this.getCaptcha()
-  },
-  components: {
-    HeaderTop,
-    AlertTip
   },
   computed: {
     ...mapState([
@@ -50,10 +44,10 @@ export default {
     }
   },
   methods: {
-    // 线上环境采用固定的图片，编译环境获取真实的验证码
-    getCaptcha () {
-      this.captchaCodeImg = ''
-    // 'http://localhost:4000/captcha?time=' + Date.now()
+    // 获取一个新的图片验证码
+    async getCaptcha () {
+      let res = await getCaptcha()
+      this.captcha = res.data
     },
     // 兑换红包
     async exchange () {

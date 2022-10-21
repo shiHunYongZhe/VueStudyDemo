@@ -15,7 +15,7 @@
       搜索历史
     </header>
     <ul class="getpois_ul">
-      <li v-for="(item, index) in placelist" @click='nextpage(index, item.name)' :key="index">
+      <li v-for="(item, index) in placelist" @click='nextpage(index, item.name)' :key="item.name">
         <h4 class="pois_name ellipsis">{{item.name}}</h4>
         <p class="pois_address ellipsis">{{item.address}}</p>
       </li>
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop'
 import {getStore, setStore, removeStore} from '../../../api/utils'
 
 export default {
@@ -44,16 +43,8 @@ export default {
 
   mounted () {
     this.cityid = this.$route.params.cityid
-    // 获取当前城市名字
-    // currentcity(this.cityid).then(res => {
-      // this.cityname = res.name
-    // })
     setStore('placeHistory', this.placeHistory)
     this.initData()
-  },
-
-  components: {
-    HeaderTop
   },
 
   methods: {
@@ -98,7 +89,7 @@ export default {
       } else {
         this.placeHistory.push(choosePlace)
       }
-      // setStore('placeHistory', this.placeHistory)
+      setStore('placeHistory', this.placeHistory)
       this.$router.push({path: '/home', query: {name}})
     },
     clearAll () {

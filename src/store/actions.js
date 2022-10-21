@@ -36,18 +36,18 @@ export default {
     // 从state状态中获取到经纬度用来设置reqAddress的参数（看接口文档）
     const geohash = state.latitude + ',' + state.longitude
     // 1. 发送异步ajax请求
-    const result = await reqAddress(geohash)
+    const {code, data} = await reqAddress(geohash)
     // 2. 提交一个mutation
-    if (result.code === 0) {
-      const address = result.data
+    if (code === 0) {
+      const address = data
       commit(RECEIVE_ADDRESS, {address})
     }
   },
   // 异步获取食品分类列表
   async getCategorys ({commit}) {
-    const result = await reqCategorys()
-    if (result.code === 0) {
-      const categorys = result.data
+    const {code, data} = await reqCategorys()
+    if (code === 0) {
+      const categorys = data
       commit(RECEIVE_CATEGORYS, {categorys})
     }
   },

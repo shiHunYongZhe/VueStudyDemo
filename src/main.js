@@ -1,5 +1,4 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import App from './App';
 import router from './router';
 import store from './store';
@@ -10,7 +9,8 @@ import { Button } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 // import Raven from "raven-js";
 // import RavenVue from "raven-js/plugins/vue";
-
+import HeaderTop from './components/HeaderTop/HeaderTop.vue'
+import AlertTip from './components/AlertTip/AlertTip.vue'
 // 加载mockServer,根据请求响应固定数据
 import './mock/mockServer';
 
@@ -25,6 +25,8 @@ if ('addEventListener' in document) {
     });
 }
 Vue.component(Button.name, Button);
+Vue.component('header-top', HeaderTop);
+Vue.component('alert-tip', AlertTip);
 
 Vue.use(vueLazyload, {
     loading: require('./common/imgs/loading.gif')
@@ -40,26 +42,8 @@ Vue.use(vueLazyload, {
 // 关闭vue功能的线上实例提示
 const isDebug_mode = process.env.NODE_ENV !== 'production';
 Vue.config.debug = isDebug_mode;
-Vue.config.devtools = isDebug_mode; // 开启Chrome浏览器的Vue调试插件（网上找Vue.js devtools）
+Vue.config.devtools = isDebug_mode; // 开启Chrome浏览器的Vue调试插件（网上找的Vue.js devtools）
 Vue.config.productionTip = isDebug_mode; // 阻止Vue在启动时生成生产提示
-Vue.config.keyCodes.f1 = 112 // 自定义全局按键修饰符，如@keyup.f1="fn"，没配置之前的写法是@keyup.112="fn"
-
-// 监听路由进入和离开
-// router.beforeEach((to, from, next) => {
-    // if (to.matched.some(record => record.meta.requiresAuth)) {     // 哪些需要验证
-    //   if (localStorage.getItem("token")==='undefined') {                      // token存在条件
-    //     next({
-    //       path: '/login',                                               // 验证失败要跳转的页面
-    //     })
-    //   } else {
-    //     next()
-    //   }
-    // } else {
-    //   next()                                                       // 确保一定要调用 next()
-    // }
-//   });
-//   router.afterEach(route => {
-//   });
 
 /* eslint-disable no-new */
 new Vue({

@@ -144,8 +144,6 @@
 │   │   │   └── Home.vue                        // 首页
 │   │   ├── Login
 │   │   │   └── Login.vue                       // 登录注册页
-│   │   ├── OnlineShop
-│   │   │   └── OnlineShop.vue                  // 网上商城页
 │   │   ├── Order
 │   │   │   ├── children(未添加)
 │   │   ├── msite
@@ -220,11 +218,6 @@
 ├── package.json                                // 应用包配置文件
 ├── README.md                                   // 项目说明文档
 
-// 这些后面我删除了
-├── test                                        // 用于测试的文件夹
-├── .eslintignore                               // eslint检查忽略文件
-├── .eslintrc.js                                // eslint检查配置规则
-
 .
 ```
 
@@ -272,8 +265,3 @@ npm run build
     - scp -r dist root@192.168.0.101:/var/www/html/fancy
     -
 ```
-
-如果你没用过 `Vue-cli`，那么，你可能会对它的图片存放路径存在问题，因为它可以存放在 `src/assets` 及 `static` 这两个目录中。你可能对此感到疑惑，为什么它会有两个文件夹来进行存放呢？
-讲个大白话：`src/assets` 目录中的图片是会被 `webpack` 打包成 base64 的，`static` 目录中的图片是不会被打包的。
-
-那么，为什么会存在打包成 `base64` 的区别呢？因为当浏览器加载你的图片的时候，每一张图片就相当于一次 `http` 请求，当图片多了的时候，它就会损耗你的性能。

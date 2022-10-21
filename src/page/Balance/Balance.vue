@@ -1,6 +1,6 @@
  <template>
   <div class="page">
-    <HeaderTop title="我的余额"></HeaderTop>
+    <header-top title="我的余额" />
     <section class="content_container">
       <section class="content">
         <header class="content_header">
@@ -22,13 +22,11 @@
         <img src="../../common/imgs/no-log.png">
         <p>暂无明细记录</p>
     </div>
-    <AlertTip v-show="showAlert" @closeTip="showAlert = false" :alertText="alertText"></AlertTip>
+    <alert-tip v-show="showAlert" @closeTip="showAlert = false" :alertText="alertText" />
   </div>
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../components/AlertTip/AlertTip.vue'
 
 export default {
   data () {
@@ -36,10 +34,6 @@ export default {
       showAlert: false,
       alertText: null
     }
-  },
-  components: {
-    HeaderTop,
-    AlertTip
   }
 }
 </script>

@@ -1,6 +1,6 @@
  <template>
   <div class="page_container">
-        <HeaderTop title="兑换会员"></HeaderTop>
+        <header-top title="兑换会员" />
         <p class="buy_for">成功兑换后将关联到当前帐号： <span>{{userInfo.username}}</span></p>
         <form class="form_style">
           <input type="text" name="cartNumber" maxlength="10" v-model="cartNumber" placeholder="请输入10位卡号">
@@ -15,13 +15,11 @@
       <p>年卡：<b>360</b>次减免配送费。</p>
       <p>＊仅限蜂鸟专送订单，每日最多减免3单，每单最高减免4元（一个月按31天计算）</p>
       </footer>
-      <AlertTip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></AlertTip>
+      <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText" />
     </div>
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../../components/AlertTip/AlertTip.vue'
 import {mapState} from 'vuex'
 import {vipCart} from '../../../api'
 
@@ -41,10 +39,6 @@ export default {
     couldPay () {
       return (/^\d{10}$/.test(this.cartNumber)) && (/^\d{6}$/.test(this.passWord))
     }
-  },
-  components: {
-    HeaderTop,
-    AlertTip
   },
   methods: {
     async confrimPay () {

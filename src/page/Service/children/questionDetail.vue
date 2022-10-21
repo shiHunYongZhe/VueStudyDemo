@@ -1,6 +1,6 @@
  <template>
   <div class="detail_page">
-        <HeaderTop :title="questionItem.title"></HeaderTop>
+        <header-top :title="questionItem.title" />
         <section id="scroll_section" class="scroll_container">
             <section v-html="markdownText" class="markdown"></section>
         </section>
@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import {mapState} from 'vuex'
 import showdown from 'showdown'
 import BScroll from 'better-scroll'
@@ -18,9 +17,6 @@ export default {
     return {
 
     }
-  },
-  components: {
-    HeaderTop
   },
   mounted () {
     this.$nextTick(() => {

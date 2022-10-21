@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="order">
-      <header-top title="订单列表" :isBack="false"></header-top>
+      <header-top title="订单列表" :isBack="false" />
       <!-- <section class="order_no_login">
         <img src="./images/person.png">
         <h3>登录后查看外卖订单</h3>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import Loading from '../../components/Loading/Loading'
 import { dataMixin } from "../../mixins/dataMixin.js";
 export default {
@@ -28,7 +27,6 @@ export default {
   //nopage 页面混入
   mixins: [dataMixin],
   components: {
-    HeaderTop,
     Loading
   },
   mounted () {

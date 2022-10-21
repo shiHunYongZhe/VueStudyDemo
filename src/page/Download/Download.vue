@@ -1,24 +1,22 @@
  <template>
   <div class="download_page">
-        <HeaderTop title="下载"></HeaderTop>
+        <header-top title="下载"/>
         <section class="dowload_container">
             <img src='../../common/imgs/elmlogo.jpeg' class="logo_img">
             <p>下载饿了么APP</p>
             <div class="determine" @click="download">下载</div>
         </section>
-        <AlertTip :alertText="alertText" v-show="showAlert" @closeTip="closeTip"/>
+        <alert-tip :alertText="alertText" v-show="alertShow" @closeTip="closeTip"/>
     </div>
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../components/AlertTip/AlertTip.vue'
-
+import {downloadImg} from 'src/api/utils'
 export default {
   data () {
     return {
       system: null,
-      showAlert: false,
+      alertShow: false,
       alertText: null
     }
   },
@@ -35,29 +33,26 @@ export default {
       this.system = 'pc'
     }
   },
-  components: {
-    HeaderTop,
-    AlertTip
-  },
   methods: {
     download () {
       // 如果是ios用户则提示，否则直接下载
       if (this.system === 'IOS') {
-        this.showAlert = true
+        this.alertShow = true
         this.alertText = 'IOS用户请前往AppStore下载'
       } else {
         try {
-          let elemIF = document.createElement('iframe')
-          elemIF.src = 'http://cangdu.org/files/elm.apk'
-          elemIF.style.display = 'none'
-          document.body.appendChild(elemIF)
+          downloadImg('https://dummyimage.com/600x400/000/fff')
+          // let elemIF = document.createElement('iframe')
+          // elemIF.src = 'http://cangdu.org/files/elm.apk'
+          // elemIF.style.display = 'none'
+          // document.body.appendChild(elemIF)
         } catch (e) {
           alert('下载失败')
         }
       }
     },
     closeTip () {
-      this.showAlert = false
+      this.alertShow = false
     }
   }
 }

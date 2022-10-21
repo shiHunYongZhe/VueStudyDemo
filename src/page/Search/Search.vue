@@ -1,6 +1,6 @@
 <template>
   <section class="search">
-    <HeaderTop title="搜索" :isBack="false"/>
+    <header-top title="搜索" :isBack="false"/>
     <form class="search_form" @submit.prevent="search">
       <input type="text" placeholder="请输入商家名称" class="search_input" v-model="keyword" @input="checkInput">
       <input type="submit" class="search_submit" @click.prevent="searchTarget('')">
@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import {searchRestaurant} from '../../api'
 import {getStore, setStore} from '../../api/utils'
 import {mapState} from 'vuex'
@@ -130,9 +129,6 @@ export default {
         this.noSearchShops = false
       }
     }
-  },
-  components: {
-    HeaderTop
   },
   computed: {
     ...mapState(['searchShops'])

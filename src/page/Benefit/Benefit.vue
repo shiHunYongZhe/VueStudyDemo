@@ -1,6 +1,7 @@
  <template>
   <div class="rating_page">
-    <HeaderTop title="我的余额"></HeaderTop>
+    <header-top title="我的余额" />
+    <img :src="loadingGif" alt="" v-if="loading">
     <section>
       <section class="category_title">
         <span :class="{choosed: categoryType === 1}" @click="categoryType = 1">红包</span>
@@ -74,7 +75,7 @@
         </section>
       </transition>
     </section>
-    <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
+    <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText" />
     <transition name="router-slid" mode="out-in">
         <router-view></router-view>
     </transition>
@@ -82,11 +83,11 @@
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-import AlertTip from '../../components/AlertTip/AlertTip.vue'
+import HeaderTop from 'src/components/HeaderTop/HeaderTop.vue'
+import AlertTip from 'src/components/AlertTip/AlertTip.vue'
 import {mapState, mapMutations} from 'vuex'
 import {getHongbaoNum} from '../../api/index'
-// import loading from 'src/components/common/loading'
+import loadingGif from 'src/common/imgs/loading.gif'
 
 export default {
   data () {
@@ -94,6 +95,8 @@ export default {
       showAlert: false, // 弹出框
       alertText: null, // 弹出框文字
       hongbaoList: {}, // 红包列表
+      loadingGif,
+      loading: false, // 请求接口中
       categoryType: 1 // 红包与商家代金券切换
     }
   },
@@ -103,7 +106,6 @@ export default {
   components: {
     HeaderTop,
     AlertTip
-    // loading
   },
   computed: {
     ...mapState([
@@ -116,7 +118,9 @@ export default {
     ]),
     async initData () {
       if (this.userInfo) {
+        this.loading = true
         // this.hongbaoList = await getHongbaoNum(this.userInfo.user_id)
+        this.loading = false
       }
     }
   },

@@ -1,6 +1,6 @@
  <template>
   <div class="page_container">
-        <HeaderTop title="购买记录"></HeaderTop>
+        <header-top title="购买记录" />
         <!-- 没有办过会员卡，获取不到数据，只好写死 -->
         <section class="invoice_contianer">
             <img src="../../../common/imgs/no-log.png">
@@ -10,9 +10,7 @@
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import {mapState} from 'vuex'
-// import {getOrderList} from '../../../api'
 
 export default {
   computed: {
@@ -20,9 +18,6 @@ export default {
       'userInfo'
     ])
   },
-  components: {
-    HeaderTop
-  }
 }
 </script>
 

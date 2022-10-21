@@ -1,6 +1,6 @@
  <template>
   <div class="page">
-    <HeaderTop title="历史红包"></HeaderTop>
+    <header-top title="历史红包" />
       <section id="scroll_section" class="scroll_container">
         <ul class="hongbao_list_ul">
           <li class="hongbao_list_li" v-for="item in expiredList" :key="item.id">
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import BScroll from 'better-scroll'
 import {mapState} from 'vuex'
 import {getExpired} from '../../../api/index'
@@ -47,9 +46,6 @@ export default {
   },
   mounted () {
     this.initData()
-  },
-  components: {
-    HeaderTop
   },
   computed: {
     ...mapState([

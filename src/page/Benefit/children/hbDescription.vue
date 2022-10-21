@@ -1,20 +1,14 @@
  <template>
   <div class="page">
-    <HeaderTop title="红包说明"></HeaderTop>
+    <header-top title="红包说明" />
     <div class="markdown" v-html="markdownText"></div>
   </div>
 </template>
 
 <script>
-import HeaderTop from '../../../components/HeaderTop/HeaderTop.vue'
 import showdown from 'showdown'
 import hbDescription from './hbDescription.md'
 export default {
-  mounted () {
-  },
-  components: {
-    HeaderTop
-  },
   computed: {
     markdownText () {
       // 转换markDown格式
